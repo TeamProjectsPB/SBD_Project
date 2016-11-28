@@ -4,21 +4,23 @@
 
 <div class="my-jumbotron">
     <h2>Witaj !</h2>
-    <p class="lead">Witaj w panelu administaracyjnym przeznaczonym dla administratora. Z tego miejsca masz możliwość przyznawania kontroli dostępu dla poszczególnych pracowników oraz możliwość czuwania nad bezawaryjną pracą systemu.</p>
+    <p class="lead">Doręczamy przesyłki na całym świecie, każdego dnia i o każdej porze. Powierzając nam swoje przesyłki możesz być pewien, że doręczymy je na czas i w doskonałym stanie. Wybierz jedną z naszych usług na przesyłki frachtowe. Jeśli potrzebujesz szybszego doręczenia znajdziemy dla Ciebie rozwiązanie.</p>
 </div>
 
-<div class="row">
+<div class="row my-jumbotron">
     <div class="col-md-4">
         <p>
             <h2>
                 <img src="~/IMG/cennik.png" height="65px"/>
-                <a href=@Url.Action("Index", "Cennik")>
-                    Cennik
+                <a href=@Url.Action("About", "Home")>
+                    O nas
                 </a>
             </h2>
         </p>
         <p>
-            Kontrola nad cennikiem paczki w zależności od jej wagi. Informacje zawarte w cenniku wykorzystywane, są do obliczenia ceny końcowej nadania paczki przez klienta.
+            Międzynarodowe dostawy ekspresowe i kurierskie; spedycja frachtowa poprzez transport powietrzny, morski,
+            drogowy i kolejowy; sposoby magazynowania począwszy od pakowania do naprawy i przechowywania; dostaw pocztowych na całym świecie, 
+            oraz innych niestandardowych usług logistycznych. 
         </p>
 
     </div>
@@ -26,153 +28,27 @@
         <p>
             <h2>
                 <img src="~/IMG/driver.png" height="65px" />
-                <a href=@Url.Action("Index", "Kierowcas")>
-                    Kierowca
+                <a href=@Url.Action("IndexAdmin", "Home")>
+                    Kariera
                 </a>
             </h2>
         </p>
-        <p>Wszelkie informacje o zatrudnionych kierowcach w firmie.</p>
+        <p>Praca w LHD wiąże się z przyjęciem na siebie odpowiedzialności, pokonywaniem trudności i stałym rozwojem w zróżnicowanym zespole,
+            gromadzącym ludzi z całego świata. Przyczyniaj się do naszego sukcesu, korzystając z wielu różnorodnych, 
+        ciekawych możliwości zawodowych.</p>
     </div>
     <div class="col-md-4">
         <p>
             <h2>
                 <img src="~/IMG/client.png" height="65px" />
-                <a href=@Url.Action("Index", "Klient")>
-                    Klient
+                <a href=@Url.Action("Contact", "Home")>
+                    Kontakt
                 </a>
             </h2>
         </p>
-        <p>Baza danych klientów, którzy korzystają z usług naszej firmy.</p>
+        <p>Znajdź odpowiadającą Tobie formę kontaktu z naszymi pracownikami, a my już dopilnujemy aby wszelkie pytania i problemy zostały 
+        wyjaśnione najszybciej i najbardziej żetelnie jak tylko potrafimy. Wejdź i skontaktuj się z nami.</p>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <p>
-            <h2>
-                <img src="~/IMG/repair.jpg" height="65px" />
-                <a href=@Url.Action("Index", "Naprawa")>
-                    Naprawa
-                </a>
-            </h2>
-        </p>
-        <p>
-            Informacje o prowadzonych naprawach samochodów oraz naprawach zaplanowanych na przyszłość.
-        </p>
-    </div>
-    <div class="col-md-4">
-        <p>
-            <h2>
-                <img src="~/IMG/pracownik.png" height="65px" />
-                <a href=@Url.Action("Index", "Pracownik")>
-                    Pracownik
-                </a>
-            </h2>
-        </p>
-        <p>Informacje o pracownikach biurowych zatrudnionych w firmie, możliwość usunięcia lub założenia nowego konta pracowniczego.</p>
-    </div>
-    <div class="col-md-4">
-        <p>
-            <h2>
-                <img src="~/IMG/transport.jpg" height="65px" />
-                <a href=@Url.Action("Index", "Przewoz")>
-                    Przewóz
-                </a>
-            </h2>
-        </p>
-        <p>Informacje o zaplanowanych przewozach.</p>
 
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <p>
-            <h2>
-                <img src="~/IMG/status.png" height="65px" />
-                <a href=@Url.Action("Index", "Realizacjas")>
-                    Realizacja
-                </a>
-            </h2>
-        </p>
-        <p>
-            Tabela zawierająca możliwe dostępne statusy realizacji zlecenia.
-        </p>
-    </div>
-    <div class="col-md-4">
-        <p>
-            <h2>
-                <img src="~/IMG/truck-icon.png" height="65px" />
-                <a href=@Url.Action("Index", "Samochod")>
-                    Samochód
-                </a>
-            </h2>
-        </p>
-        <p>Spis wszystkich pojazdów w firmie, zarówno pojazdy niezbędne do utrzymania transportu oraz pojazdy pracownicze niezbędne do prawidłowego funkcjonowania firmy.</p>
-    </div>
-    <div class="col-md-4">
-        <p>
-            <h2>
-                <img src="~/IMG/serwis.png" height="65px" />
-                <a href=@Url.Action("Index", "Serwis")>
-                    Serwis
-                </a>
-            </h2>
-        </p>
-        <p>Informacje o zaprzyjażnionych serwisach z którymi firma ma podpisane umowy na serwisowanie pojazdów.</p>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <p>
-            <h2>
-                <img src="~/IMG/uprawnienia.png" height="65px" />
-                <a href=@Url.Action("Index", "Uprawnienia")>
-                    Uprawnienia
-                </a>
-            </h2>
-        </p>
-        <p>
-            Informacje o uprawnieniach do wykonywania transportu dla danago kierowcy. 
-        </p>
-    </div>
-    <div class="col-md-4">
-        <p>
-            <h2>
-                <img src="~/IMG/zlecenia.png" height="65px" />
-                <a href=@Url.Action("Index", "Zlecenie")>
-                    Zlecenie
-                </a>
-            </h2>
-        </p>
-        <p>Informacje o zleceniach.</p>
-    </div>
-    <div class="col-md-4">
-        <p>
-            <h2>
-                <img src="~/IMG/paczka.jpg" height="65px" />
-                <a href=@Url.Action("Index", "Paczka")>
-                    Paczka
-                </a>
-            </h2>
-        </p>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <p>
-            <h2>
-                <img src="~/IMG/user.png" height="65px" />
-                <a href=@Url.Action("Index", "Uzytkownik")>
-                    Użytkownik
-                </a>
-            </h2>
-        </p>
-        <p>
-            Konta użytkowników systemu.
-        </p>
-    </div>
-</div>

@@ -20,6 +20,13 @@ namespace SBD_Project.Controllers
             return View();
         }
 
+        public ActionResult IndexAdmin()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
