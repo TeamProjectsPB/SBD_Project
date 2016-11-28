@@ -1,0 +1,67 @@
+﻿@model SBD_Project.Models.Zlecenie
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Zlecenie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Lokalizacja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lokalizacja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataZlecenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataZlecenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nadanie.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nadanie.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Odbior.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Odbior.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pracownik.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pracownik.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Realizacja.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Realizacja.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

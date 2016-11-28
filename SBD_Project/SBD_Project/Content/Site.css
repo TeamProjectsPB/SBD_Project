@@ -22,3 +22,56 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.logo {
+  position:absolute;
+  z-index: 0;
+
+  left: 20px;
+  top: 5px;
+  height: 125px;
+  width: 125px;
+}
+
+.icon-size {
+  height: 65px;
+}
+
+.my-jumbotron {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  text-align: justify
+  line-height: 2.1428571435;
+  color: #7F7460;
+  background-color: #FFCB73;
+}
+
+.my-navbar {
+  background-color: #7F7460;
+  border-color: #FFCB73;
+  position: relative;
+  z-index: 1000;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 1030;
+  border-width: 0 0 1px;
+}
+
+.my-navbar-text{
+  color: #FFCB73;
+    font-size: 16px;
+}
+
+.borderless table {
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+}

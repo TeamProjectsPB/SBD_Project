@@ -21,7 +21,7 @@ namespace SBD_Project.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SBD_DBEntities", throwIfV1Schema: false)
         {
         }
 

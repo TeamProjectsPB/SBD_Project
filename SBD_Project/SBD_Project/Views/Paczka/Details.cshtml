@@ -1,0 +1,67 @@
+﻿@model SBD_Project.Models.Paczka
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Paczka</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wartosc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wartosc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Waga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Waga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uwagi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uwagi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Przewoz.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Przewoz.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zlecenie.Lokalizacja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zlecenie.Lokalizacja)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

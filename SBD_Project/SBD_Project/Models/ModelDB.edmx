@@ -1,0 +1,1109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SBD_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cennik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MinWaga" Type="numeric" Precision="6" Scale="3" />
+          <Property Name="MaxWaga" Type="numeric" Precision="6" Scale="3" />
+          <Property Name="Cena" Type="numeric" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="Kierowca">
+          <Key>
+            <PropertyRef Name="FK_Uzytkownik" />
+          </Key>
+          <Property Name="FK_Uzytkownik" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KodPocztowy" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Miasto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumerDomu" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="NumerMieszkania" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="Telefon" Type="numeric" Precision="13" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar(max)" Nullable="false" />
+          <Property Name="KodPocztowy" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Miasto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumerDomu" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="NumerMieszkania" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="Telefon" Type="numeric" Precision="13" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nadanie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Klient" Type="int" Nullable="false" />
+          <Property Name="Data" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Naprawa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Samochod" Type="int" Nullable="false" />
+          <Property Name="FK_Serwis" Type="int" Nullable="false" />
+          <Property Name="DataOddania" Type="datetime" Nullable="false" />
+          <Property Name="DataOdbioru" Type="datetime" Nullable="false" />
+          <Property Name="Opis" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Odbior">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Klient" Type="int" Nullable="false" />
+          <Property Name="Data" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paczka">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Zlecenie" Type="int" Nullable="false" />
+          <Property Name="FK_Przewoz" Type="int" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Wartosc" Type="numeric" Precision="6" Scale="3" Nullable="false" />
+          <Property Name="Waga" Type="numeric" Precision="6" Scale="3" Nullable="false" />
+          <Property Name="Uwagi" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="FK_Uzytkownik" />
+          </Key>
+          <Property Name="FK_Uzytkownik" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Przewoz">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Samochod" Type="int" Nullable="false" />
+          <Property Name="FK_Kierowca" Type="int" Nullable="false" />
+          <Property Name="DataPrzewozu" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Realizacja">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Samochod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumerRej" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CzyWolny" Type="tinyint" Nullable="false" />
+          <Property Name="Marka" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tonaz" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Serwis">
+          <Key>
+            <PropertyRef Name="FK_Uzytkownik" />
+          </Key>
+          <Property Name="FK_Uzytkownik" Type="int" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KodPocztowy" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Miasto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumerDomu" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="NumerMieszkania" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="Telefon" Type="numeric" Precision="13" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uprawnienia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Kierowca" Type="int" Nullable="false" />
+          <Property Name="NumerUprawnienia" Type="varchar(max)" Nullable="false" />
+          <Property Name="Opis" Type="varchar(max)" Nullable="false" />
+          <Property Name="DataOd" Type="datetime" Nullable="false" />
+          <Property Name="DataDo" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uzytkownik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hasło" Type="varchar(max)" Nullable="false" />
+          <Property Name="Typ" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zlecenie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Realizacja" Type="int" Nullable="false" />
+          <Property Name="FK_Nadanie" Type="int" Nullable="false" />
+          <Property Name="FK_Odbior" Type="int" Nullable="false" />
+          <Property Name="FK_Pracownik" Type="int" Nullable="false" />
+          <Property Name="Lokalizacja" Type="varchar(max)" Nullable="false" />
+          <Property Name="DataZlecenia" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Kierowca_ToTableUzytkownik">
+          <End Role="Uzytkownik" Type="Self.Uzytkownik" Multiplicity="1" />
+          <End Role="Kierowca" Type="Self.Kierowca" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Kierowca">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nadanie_ToTableKlient">
+          <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+          <End Role="Nadanie" Type="Self.Nadanie" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Klient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nadanie">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Naprawa_ToTableSamochod">
+          <End Role="Samochod" Type="Self.Samochod" Multiplicity="1" />
+          <End Role="Naprawa" Type="Self.Naprawa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Samochod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Naprawa">
+              <PropertyRef Name="FK_Samochod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Naprawa_ToTableSerwis">
+          <End Role="Serwis" Type="Self.Serwis" Multiplicity="1" />
+          <End Role="Naprawa" Type="Self.Naprawa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Serwis">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Principal>
+            <Dependent Role="Naprawa">
+              <PropertyRef Name="FK_Serwis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Odbior_ToTableKlient">
+          <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+          <End Role="Odbior" Type="Self.Odbior" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Klient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Odbior">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paczka_ToTablePrzewoz">
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="1" />
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Przewoz">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Paczka">
+              <PropertyRef Name="FK_Przewoz" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paczka_ToTableZlecenie">
+          <End Role="Zlecenie" Type="Self.Zlecenie" Multiplicity="1" />
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zlecenie">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Paczka">
+              <PropertyRef Name="FK_Zlecenie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Przewoz_ToTableKierowca">
+          <End Role="Kierowca" Type="Self.Kierowca" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kierowca">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="FK_Kierowca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Przewoz_ToTableSamochod">
+          <End Role="Samochod" Type="Self.Samochod" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Samochod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="FK_Samochod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Serwis_ToTableUzytkownik">
+          <End Role="Uzytkownik" Type="Self.Uzytkownik" Multiplicity="1" />
+          <End Role="Serwis" Type="Self.Serwis" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Serwis">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uprawnienia_ToTableKierowca">
+          <End Role="Kierowca" Type="Self.Kierowca" Multiplicity="1" />
+          <End Role="Uprawnienia" Type="Self.Uprawnienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kierowca">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Principal>
+            <Dependent Role="Uprawnienia">
+              <PropertyRef Name="FK_Kierowca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uzytkownik_ToTableUzytkownik">
+          <End Role="Uzytkownik" Type="Self.Uzytkownik" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zlecenie_ToRealizacja">
+          <End Role="Realizacja" Type="Self.Realizacja" Multiplicity="1" />
+          <End Role="Zlecenie" Type="Self.Zlecenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Realizacja">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zlecenie">
+              <PropertyRef Name="FK_Realizacja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zlecenie_ToTableNadanie">
+          <End Role="Nadanie" Type="Self.Nadanie" Multiplicity="1" />
+          <End Role="Zlecenie" Type="Self.Zlecenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nadanie">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zlecenie">
+              <PropertyRef Name="FK_Nadanie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zlecenie_ToTableOdbior">
+          <End Role="Odbior" Type="Self.Odbior" Multiplicity="1" />
+          <End Role="Zlecenie" Type="Self.Zlecenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Odbior">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zlecenie">
+              <PropertyRef Name="FK_Odbior" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zlecenie_ToTablePracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Zlecenie" Type="Self.Zlecenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Principal>
+            <Dependent Role="Zlecenie">
+              <PropertyRef Name="FK_Pracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SBD_DBModelStoreContainer">
+          <EntitySet Name="Cennik" EntityType="Self.Cennik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kierowca" EntityType="Self.Kierowca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klient" EntityType="Self.Klient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nadanie" EntityType="Self.Nadanie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Naprawa" EntityType="Self.Naprawa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Odbior" EntityType="Self.Odbior" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paczka" EntityType="Self.Paczka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Przewoz" EntityType="Self.Przewoz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Realizacja" EntityType="Self.Realizacja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Samochod" EntityType="Self.Samochod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Serwis" EntityType="Self.Serwis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uprawnienia" EntityType="Self.Uprawnienia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uzytkownik" EntityType="Self.Uzytkownik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zlecenie" EntityType="Self.Zlecenie" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Kierowca_ToTableUzytkownik" Association="Self.FK_Kierowca_ToTableUzytkownik">
+            <End Role="Uzytkownik" EntitySet="Uzytkownik" />
+            <End Role="Kierowca" EntitySet="Kierowca" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nadanie_ToTableKlient" Association="Self.FK_Nadanie_ToTableKlient">
+            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Nadanie" EntitySet="Nadanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Naprawa_ToTableSamochod" Association="Self.FK_Naprawa_ToTableSamochod">
+            <End Role="Samochod" EntitySet="Samochod" />
+            <End Role="Naprawa" EntitySet="Naprawa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Naprawa_ToTableSerwis" Association="Self.FK_Naprawa_ToTableSerwis">
+            <End Role="Serwis" EntitySet="Serwis" />
+            <End Role="Naprawa" EntitySet="Naprawa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Odbior_ToTableKlient" Association="Self.FK_Odbior_ToTableKlient">
+            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Odbior" EntitySet="Odbior" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paczka_ToTablePrzewoz" Association="Self.FK_Paczka_ToTablePrzewoz">
+            <End Role="Przewoz" EntitySet="Przewoz" />
+            <End Role="Paczka" EntitySet="Paczka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paczka_ToTableZlecenie" Association="Self.FK_Paczka_ToTableZlecenie">
+            <End Role="Zlecenie" EntitySet="Zlecenie" />
+            <End Role="Paczka" EntitySet="Paczka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Przewoz_ToTableKierowca" Association="Self.FK_Przewoz_ToTableKierowca">
+            <End Role="Kierowca" EntitySet="Kierowca" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Przewoz_ToTableSamochod" Association="Self.FK_Przewoz_ToTableSamochod">
+            <End Role="Samochod" EntitySet="Samochod" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Serwis_ToTableUzytkownik" Association="Self.FK_Serwis_ToTableUzytkownik">
+            <End Role="Uzytkownik" EntitySet="Uzytkownik" />
+            <End Role="Serwis" EntitySet="Serwis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uprawnienia_ToTableKierowca" Association="Self.FK_Uprawnienia_ToTableKierowca">
+            <End Role="Kierowca" EntitySet="Kierowca" />
+            <End Role="Uprawnienia" EntitySet="Uprawnienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uzytkownik_ToTableUzytkownik" Association="Self.FK_Uzytkownik_ToTableUzytkownik">
+            <End Role="Uzytkownik" EntitySet="Uzytkownik" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zlecenie_ToRealizacja" Association="Self.FK_Zlecenie_ToRealizacja">
+            <End Role="Realizacja" EntitySet="Realizacja" />
+            <End Role="Zlecenie" EntitySet="Zlecenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zlecenie_ToTableNadanie" Association="Self.FK_Zlecenie_ToTableNadanie">
+            <End Role="Nadanie" EntitySet="Nadanie" />
+            <End Role="Zlecenie" EntitySet="Zlecenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zlecenie_ToTableOdbior" Association="Self.FK_Zlecenie_ToTableOdbior">
+            <End Role="Odbior" EntitySet="Odbior" />
+            <End Role="Zlecenie" EntitySet="Zlecenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zlecenie_ToTablePracownik" Association="Self.FK_Zlecenie_ToTablePracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Zlecenie" EntitySet="Zlecenie" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SBD_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cennik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MinWaga" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="MaxWaga" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="Cena" Type="Decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="Kierowca">
+          <Key>
+            <PropertyRef Name="FK_Uzytkownik" />
+          </Key>
+          <Property Name="FK_Uzytkownik" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Miasto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumerDomu" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="NumerMieszkania" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="Telefon" Type="Decimal" Precision="13" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Uzytkownik" Relationship="Self.FK_Kierowca_ToTableUzytkownik" FromRole="Kierowca" ToRole="Uzytkownik" />
+          <NavigationProperty Name="Przewoz" Relationship="Self.FK_Przewoz_ToTableKierowca" FromRole="Kierowca" ToRole="Przewoz" />
+          <NavigationProperty Name="Uprawnienia" Relationship="Self.FK_Uprawnienia_ToTableKierowca" FromRole="Kierowca" ToRole="Uprawnienia" />
+        </EntityType>
+        <EntityType Name="Klient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Miasto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumerDomu" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="NumerMieszkania" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="Telefon" Type="Decimal" Precision="13" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Nadanie" Relationship="Self.FK_Nadanie_ToTableKlient" FromRole="Klient" ToRole="Nadanie" />
+          <NavigationProperty Name="Odbior" Relationship="Self.FK_Odbior_ToTableKlient" FromRole="Klient" ToRole="Odbior" />
+        </EntityType>
+        <EntityType Name="Nadanie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Klient" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Klient" Relationship="Self.FK_Nadanie_ToTableKlient" FromRole="Nadanie" ToRole="Klient" />
+          <NavigationProperty Name="Zlecenie" Relationship="Self.FK_Zlecenie_ToTableNadanie" FromRole="Nadanie" ToRole="Zlecenie" />
+        </EntityType>
+        <EntityType Name="Naprawa">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Samochod" Type="Int32" Nullable="false" />
+          <Property Name="FK_Serwis" Type="Int32" Nullable="false" />
+          <Property Name="DataOddania" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataOdbioru" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Samochod" Relationship="Self.FK_Naprawa_ToTableSamochod" FromRole="Naprawa" ToRole="Samochod" />
+          <NavigationProperty Name="Serwis" Relationship="Self.FK_Naprawa_ToTableSerwis" FromRole="Naprawa" ToRole="Serwis" />
+        </EntityType>
+        <EntityType Name="Odbior">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Klient" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Klient" Relationship="Self.FK_Odbior_ToTableKlient" FromRole="Odbior" ToRole="Klient" />
+          <NavigationProperty Name="Zlecenie" Relationship="Self.FK_Zlecenie_ToTableOdbior" FromRole="Odbior" ToRole="Zlecenie" />
+        </EntityType>
+        <EntityType Name="Paczka">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Zlecenie" Type="Int32" Nullable="false" />
+          <Property Name="FK_Przewoz" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Wartosc" Type="Decimal" Precision="6" Scale="3" Nullable="false" />
+          <Property Name="Waga" Type="Decimal" Precision="6" Scale="3" Nullable="false" />
+          <Property Name="Uwagi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Przewoz" Relationship="Self.FK_Paczka_ToTablePrzewoz" FromRole="Paczka" ToRole="Przewoz" />
+          <NavigationProperty Name="Zlecenie" Relationship="Self.FK_Paczka_ToTableZlecenie" FromRole="Paczka" ToRole="Zlecenie" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="FK_Uzytkownik" />
+          </Key>
+          <Property Name="FK_Uzytkownik" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Uzytkownik" Relationship="Self.FK_Uzytkownik_ToTableUzytkownik" FromRole="Pracownik" ToRole="Uzytkownik" />
+          <NavigationProperty Name="Zlecenie" Relationship="Self.FK_Zlecenie_ToTablePracownik" FromRole="Pracownik" ToRole="Zlecenie" />
+        </EntityType>
+        <EntityType Name="Przewoz">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Samochod" Type="Int32" Nullable="false" />
+          <Property Name="FK_Kierowca" Type="Int32" Nullable="false" />
+          <Property Name="DataPrzewozu" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Kierowca" Relationship="Self.FK_Przewoz_ToTableKierowca" FromRole="Przewoz" ToRole="Kierowca" />
+          <NavigationProperty Name="Paczka" Relationship="Self.FK_Paczka_ToTablePrzewoz" FromRole="Przewoz" ToRole="Paczka" />
+          <NavigationProperty Name="Samochod" Relationship="Self.FK_Przewoz_ToTableSamochod" FromRole="Przewoz" ToRole="Samochod" />
+        </EntityType>
+        <EntityType Name="Realizacja">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Zlecenie" Relationship="Self.FK_Zlecenie_ToRealizacja" FromRole="Realizacja" ToRole="Zlecenie" />
+        </EntityType>
+        <EntityType Name="Samochod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumerRej" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CzyWolny" Type="Byte" Nullable="false" />
+          <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tonaz" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Naprawa" Relationship="Self.FK_Naprawa_ToTableSamochod" FromRole="Samochod" ToRole="Naprawa" />
+          <NavigationProperty Name="Przewoz" Relationship="Self.FK_Przewoz_ToTableSamochod" FromRole="Samochod" ToRole="Przewoz" />
+        </EntityType>
+        <EntityType Name="Serwis">
+          <Key>
+            <PropertyRef Name="FK_Uzytkownik" />
+          </Key>
+          <Property Name="FK_Uzytkownik" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Miasto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumerDomu" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="NumerMieszkania" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="Telefon" Type="Decimal" Precision="13" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Naprawa" Relationship="Self.FK_Naprawa_ToTableSerwis" FromRole="Serwis" ToRole="Naprawa" />
+          <NavigationProperty Name="Uzytkownik" Relationship="Self.FK_Serwis_ToTableUzytkownik" FromRole="Serwis" ToRole="Uzytkownik" />
+        </EntityType>
+        <EntityType Name="Uprawnienia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Kierowca" Type="Int32" Nullable="false" />
+          <Property Name="NumerUprawnienia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataOd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataDo" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Kierowca" Relationship="Self.FK_Uprawnienia_ToTableKierowca" FromRole="Uprawnienia" ToRole="Kierowca" />
+        </EntityType>
+        <EntityType Name="Uzytkownik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hasło" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Typ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Kierowca" Relationship="Self.FK_Kierowca_ToTableUzytkownik" FromRole="Uzytkownik" ToRole="Kierowca" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Uzytkownik_ToTableUzytkownik" FromRole="Uzytkownik" ToRole="Pracownik" />
+          <NavigationProperty Name="Serwis" Relationship="Self.FK_Serwis_ToTableUzytkownik" FromRole="Uzytkownik" ToRole="Serwis" />
+        </EntityType>
+        <EntityType Name="Zlecenie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Realizacja" Type="Int32" Nullable="false" />
+          <Property Name="FK_Nadanie" Type="Int32" Nullable="false" />
+          <Property Name="FK_Odbior" Type="Int32" Nullable="false" />
+          <Property Name="FK_Pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Lokalizacja" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataZlecenia" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Nadanie" Relationship="Self.FK_Zlecenie_ToTableNadanie" FromRole="Zlecenie" ToRole="Nadanie" />
+          <NavigationProperty Name="Odbior" Relationship="Self.FK_Zlecenie_ToTableOdbior" FromRole="Zlecenie" ToRole="Odbior" />
+          <NavigationProperty Name="Paczka" Relationship="Self.FK_Paczka_ToTableZlecenie" FromRole="Zlecenie" ToRole="Paczka" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Zlecenie_ToTablePracownik" FromRole="Zlecenie" ToRole="Pracownik" />
+          <NavigationProperty Name="Realizacja" Relationship="Self.FK_Zlecenie_ToRealizacja" FromRole="Zlecenie" ToRole="Realizacja" />
+        </EntityType>
+        <Association Name="FK_Kierowca_ToTableUzytkownik">
+          <End Role="Uzytkownik" Type="Self.Uzytkownik" Multiplicity="1" />
+          <End Role="Kierowca" Type="Self.Kierowca" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Kierowca">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Przewoz_ToTableKierowca">
+          <End Role="Kierowca" Type="Self.Kierowca" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kierowca">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="FK_Kierowca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uprawnienia_ToTableKierowca">
+          <End Role="Kierowca" Type="Self.Kierowca" Multiplicity="1" />
+          <End Role="Uprawnienia" Type="Self.Uprawnienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kierowca">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Principal>
+            <Dependent Role="Uprawnienia">
+              <PropertyRef Name="FK_Kierowca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nadanie_ToTableKlient">
+          <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+          <End Role="Nadanie" Type="Self.Nadanie" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Klient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Nadanie">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Odbior_ToTableKlient">
+          <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+          <End Role="Odbior" Type="Self.Odbior" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Klient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Odbior">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zlecenie_ToTableNadanie">
+          <End Role="Nadanie" Type="Self.Nadanie" Multiplicity="1" />
+          <End Role="Zlecenie" Type="Self.Zlecenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nadanie">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zlecenie">
+              <PropertyRef Name="FK_Nadanie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Naprawa_ToTableSamochod">
+          <End Role="Samochod" Type="Self.Samochod" Multiplicity="1" />
+          <End Role="Naprawa" Type="Self.Naprawa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Samochod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Naprawa">
+              <PropertyRef Name="FK_Samochod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Naprawa_ToTableSerwis">
+          <End Role="Serwis" Type="Self.Serwis" Multiplicity="1" />
+          <End Role="Naprawa" Type="Self.Naprawa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Serwis">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Principal>
+            <Dependent Role="Naprawa">
+              <PropertyRef Name="FK_Serwis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zlecenie_ToTableOdbior">
+          <End Role="Odbior" Type="Self.Odbior" Multiplicity="1" />
+          <End Role="Zlecenie" Type="Self.Zlecenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Odbior">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zlecenie">
+              <PropertyRef Name="FK_Odbior" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paczka_ToTablePrzewoz">
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="1" />
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Przewoz">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Paczka">
+              <PropertyRef Name="FK_Przewoz" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paczka_ToTableZlecenie">
+          <End Role="Zlecenie" Type="Self.Zlecenie" Multiplicity="1" />
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zlecenie">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Paczka">
+              <PropertyRef Name="FK_Zlecenie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uzytkownik_ToTableUzytkownik">
+          <End Role="Uzytkownik" Type="Self.Uzytkownik" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zlecenie_ToTablePracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Zlecenie" Type="Self.Zlecenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Principal>
+            <Dependent Role="Zlecenie">
+              <PropertyRef Name="FK_Pracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Przewoz_ToTableSamochod">
+          <End Role="Samochod" Type="Self.Samochod" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Samochod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="FK_Samochod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zlecenie_ToRealizacja">
+          <End Role="Realizacja" Type="Self.Realizacja" Multiplicity="1" />
+          <End Role="Zlecenie" Type="Self.Zlecenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Realizacja">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zlecenie">
+              <PropertyRef Name="FK_Realizacja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Serwis_ToTableUzytkownik">
+          <End Role="Uzytkownik" Type="Self.Uzytkownik" Multiplicity="1" />
+          <End Role="Serwis" Type="Self.Serwis" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Serwis">
+              <PropertyRef Name="FK_Uzytkownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SBD_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cennik" EntityType="Self.Cennik" />
+          <EntitySet Name="Kierowca" EntityType="Self.Kierowca" />
+          <EntitySet Name="Klient" EntityType="Self.Klient" />
+          <EntitySet Name="Nadanie" EntityType="Self.Nadanie" />
+          <EntitySet Name="Naprawa" EntityType="Self.Naprawa" />
+          <EntitySet Name="Odbior" EntityType="Self.Odbior" />
+          <EntitySet Name="Paczka" EntityType="Self.Paczka" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" />
+          <EntitySet Name="Przewoz" EntityType="Self.Przewoz" />
+          <EntitySet Name="Realizacja" EntityType="Self.Realizacja" />
+          <EntitySet Name="Samochod" EntityType="Self.Samochod" />
+          <EntitySet Name="Serwis" EntityType="Self.Serwis" />
+          <EntitySet Name="Uprawnienia" EntityType="Self.Uprawnienia" />
+          <EntitySet Name="Uzytkownik" EntityType="Self.Uzytkownik" />
+          <EntitySet Name="Zlecenie" EntityType="Self.Zlecenie" />
+          <AssociationSet Name="FK_Kierowca_ToTableUzytkownik" Association="Self.FK_Kierowca_ToTableUzytkownik">
+            <End Role="Uzytkownik" EntitySet="Uzytkownik" />
+            <End Role="Kierowca" EntitySet="Kierowca" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Przewoz_ToTableKierowca" Association="Self.FK_Przewoz_ToTableKierowca">
+            <End Role="Kierowca" EntitySet="Kierowca" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uprawnienia_ToTableKierowca" Association="Self.FK_Uprawnienia_ToTableKierowca">
+            <End Role="Kierowca" EntitySet="Kierowca" />
+            <End Role="Uprawnienia" EntitySet="Uprawnienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nadanie_ToTableKlient" Association="Self.FK_Nadanie_ToTableKlient">
+            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Nadanie" EntitySet="Nadanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Odbior_ToTableKlient" Association="Self.FK_Odbior_ToTableKlient">
+            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Odbior" EntitySet="Odbior" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zlecenie_ToTableNadanie" Association="Self.FK_Zlecenie_ToTableNadanie">
+            <End Role="Nadanie" EntitySet="Nadanie" />
+            <End Role="Zlecenie" EntitySet="Zlecenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Naprawa_ToTableSamochod" Association="Self.FK_Naprawa_ToTableSamochod">
+            <End Role="Samochod" EntitySet="Samochod" />
+            <End Role="Naprawa" EntitySet="Naprawa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Naprawa_ToTableSerwis" Association="Self.FK_Naprawa_ToTableSerwis">
+            <End Role="Serwis" EntitySet="Serwis" />
+            <End Role="Naprawa" EntitySet="Naprawa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zlecenie_ToTableOdbior" Association="Self.FK_Zlecenie_ToTableOdbior">
+            <End Role="Odbior" EntitySet="Odbior" />
+            <End Role="Zlecenie" EntitySet="Zlecenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paczka_ToTablePrzewoz" Association="Self.FK_Paczka_ToTablePrzewoz">
+            <End Role="Przewoz" EntitySet="Przewoz" />
+            <End Role="Paczka" EntitySet="Paczka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paczka_ToTableZlecenie" Association="Self.FK_Paczka_ToTableZlecenie">
+            <End Role="Zlecenie" EntitySet="Zlecenie" />
+            <End Role="Paczka" EntitySet="Paczka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uzytkownik_ToTableUzytkownik" Association="Self.FK_Uzytkownik_ToTableUzytkownik">
+            <End Role="Uzytkownik" EntitySet="Uzytkownik" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zlecenie_ToTablePracownik" Association="Self.FK_Zlecenie_ToTablePracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Zlecenie" EntitySet="Zlecenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Przewoz_ToTableSamochod" Association="Self.FK_Przewoz_ToTableSamochod">
+            <End Role="Samochod" EntitySet="Samochod" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zlecenie_ToRealizacja" Association="Self.FK_Zlecenie_ToRealizacja">
+            <End Role="Realizacja" EntitySet="Realizacja" />
+            <End Role="Zlecenie" EntitySet="Zlecenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Serwis_ToTableUzytkownik" Association="Self.FK_Serwis_ToTableUzytkownik">
+            <End Role="Uzytkownik" EntitySet="Uzytkownik" />
+            <End Role="Serwis" EntitySet="Serwis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SBD_DBModelStoreContainer" CdmEntityContainer="SBD_DBEntities">
+          <EntitySetMapping Name="Cennik">
+            <EntityTypeMapping TypeName="SBD_DBModel.Cennik">
+              <MappingFragment StoreEntitySet="Cennik">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MinWaga" ColumnName="MinWaga" />
+                <ScalarProperty Name="MaxWaga" ColumnName="MaxWaga" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kierowca">
+            <EntityTypeMapping TypeName="SBD_DBModel.Kierowca">
+              <MappingFragment StoreEntitySet="Kierowca">
+                <ScalarProperty Name="FK_Uzytkownik" ColumnName="FK_Uzytkownik" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="NumerDomu" ColumnName="NumerDomu" />
+                <ScalarProperty Name="NumerMieszkania" ColumnName="NumerMieszkania" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klient">
+            <EntityTypeMapping TypeName="SBD_DBModel.Klient">
+              <MappingFragment StoreEntitySet="Klient">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="NumerDomu" ColumnName="NumerDomu" />
+                <ScalarProperty Name="NumerMieszkania" ColumnName="NumerMieszkania" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nadanie">
+            <EntityTypeMapping TypeName="SBD_DBModel.Nadanie">
+              <MappingFragment StoreEntitySet="Nadanie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FK_Klient" ColumnName="FK_Klient" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Naprawa">
+            <EntityTypeMapping TypeName="SBD_DBModel.Naprawa">
+              <MappingFragment StoreEntitySet="Naprawa">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FK_Samochod" ColumnName="FK_Samochod" />
+                <ScalarProperty Name="FK_Serwis" ColumnName="FK_Serwis" />
+                <ScalarProperty Name="DataOddania" ColumnName="DataOddania" />
+                <ScalarProperty Name="DataOdbioru" ColumnName="DataOdbioru" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Odbior">
+            <EntityTypeMapping TypeName="SBD_DBModel.Odbior">
+              <MappingFragment StoreEntitySet="Odbior">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FK_Klient" ColumnName="FK_Klient" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paczka">
+            <EntityTypeMapping TypeName="SBD_DBModel.Paczka">
+              <MappingFragment StoreEntitySet="Paczka">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FK_Zlecenie" ColumnName="FK_Zlecenie" />
+                <ScalarProperty Name="FK_Przewoz" ColumnName="FK_Przewoz" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Wartosc" ColumnName="Wartosc" />
+                <ScalarProperty Name="Waga" ColumnName="Waga" />
+                <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownik">
+            <EntityTypeMapping TypeName="SBD_DBModel.Pracownik">
+              <MappingFragment StoreEntitySet="Pracownik">
+                <ScalarProperty Name="FK_Uzytkownik" ColumnName="FK_Uzytkownik" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Przewoz">
+            <EntityTypeMapping TypeName="SBD_DBModel.Przewoz">
+              <MappingFragment StoreEntitySet="Przewoz">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FK_Samochod" ColumnName="FK_Samochod" />
+                <ScalarProperty Name="FK_Kierowca" ColumnName="FK_Kierowca" />
+                <ScalarProperty Name="DataPrzewozu" ColumnName="DataPrzewozu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Realizacja">
+            <EntityTypeMapping TypeName="SBD_DBModel.Realizacja">
+              <MappingFragment StoreEntitySet="Realizacja">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Samochod">
+            <EntityTypeMapping TypeName="SBD_DBModel.Samochod">
+              <MappingFragment StoreEntitySet="Samochod">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NumerRej" ColumnName="NumerRej" />
+                <ScalarProperty Name="CzyWolny" ColumnName="CzyWolny" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Tonaz" ColumnName="Tonaz" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Serwis">
+            <EntityTypeMapping TypeName="SBD_DBModel.Serwis">
+              <MappingFragment StoreEntitySet="Serwis">
+                <ScalarProperty Name="FK_Uzytkownik" ColumnName="FK_Uzytkownik" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="NumerDomu" ColumnName="NumerDomu" />
+                <ScalarProperty Name="NumerMieszkania" ColumnName="NumerMieszkania" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uprawnienia">
+            <EntityTypeMapping TypeName="SBD_DBModel.Uprawnienia">
+              <MappingFragment StoreEntitySet="Uprawnienia">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FK_Kierowca" ColumnName="FK_Kierowca" />
+                <ScalarProperty Name="NumerUprawnienia" ColumnName="NumerUprawnienia" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="DataOd" ColumnName="DataOd" />
+                <ScalarProperty Name="DataDo" ColumnName="DataDo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uzytkownik">
+            <EntityTypeMapping TypeName="SBD_DBModel.Uzytkownik">
+              <MappingFragment StoreEntitySet="Uzytkownik">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Hasło" ColumnName="Hasło" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zlecenie">
+            <EntityTypeMapping TypeName="SBD_DBModel.Zlecenie">
+              <MappingFragment StoreEntitySet="Zlecenie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FK_Realizacja" ColumnName="FK_Realizacja" />
+                <ScalarProperty Name="FK_Nadanie" ColumnName="FK_Nadanie" />
+                <ScalarProperty Name="FK_Odbior" ColumnName="FK_Odbior" />
+                <ScalarProperty Name="FK_Pracownik" ColumnName="FK_Pracownik" />
+                <ScalarProperty Name="Lokalizacja" ColumnName="Lokalizacja" />
+                <ScalarProperty Name="DataZlecenia" ColumnName="DataZlecenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -2,30 +2,177 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="my-jumbotron">
+    <h2>Witaj !</h2>
+    <p class="lead">Witaj w panelu administaracyjnym przeznaczonym dla administratora. Z tego miejsca masz możliwość przyznawania kontroli dostępu dla poszczególnych pracowników oraz możliwość czuwania nad bezawaryjną pracą systemu.</p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            <h2>
+                <img src="~/IMG/cennik.png" height="65px"/>
+                <a href=@Url.Action("Index", "Cennik")>
+                    Cennik
+                </a>
+            </h2>
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p>
+            Kontrola nad cennikiem paczki w zależności od jej wagi. Informacje zawarte w cenniku wykorzystywane, są do obliczenia ceny końcowej nadania paczki przez klienta.
+        </p>
+
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <p>
+            <h2>
+                <img src="~/IMG/driver.png" height="65px" />
+                <a href=@Url.Action("Index", "Kierowcas")>
+                    Kierowca
+                </a>
+            </h2>
+        </p>
+        <p>Wszelkie informacje o zatrudnionych kierowcach w firmie.</p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
+        <p>
+            <h2>
+                <img src="~/IMG/client.png" height="65px" />
+                <a href=@Url.Action("Index", "Klient")>
+                    Klient
+                </a>
+            </h2>
+        </p>
+        <p>Baza danych klientów, którzy korzystają z usług naszej firmy.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <img src="~/IMG/repair.jpg" height="65px" />
+                <a href=@Url.Action("Index", "Naprawa")>
+                    Naprawa
+                </a>
+            </h2>
+        </p>
+        <p>
+            Informacje o prowadzonych naprawach samochodów oraz naprawach zaplanowanych na przyszłość.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <img src="~/IMG/pracownik.png" height="65px" />
+                <a href=@Url.Action("Index", "Pracownik")>
+                    Pracownik
+                </a>
+            </h2>
+        </p>
+        <p>Informacje o pracownikach biurowych zatrudnionych w firmie, możliwość usunięcia lub założenia nowego konta pracowniczego.</p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <img src="~/IMG/transport.jpg" height="65px" />
+                <a href=@Url.Action("Index", "Przewoz")>
+                    Przewóz
+                </a>
+            </h2>
+        </p>
+        <p>Informacje o zaplanowanych przewozach.</p>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <img src="~/IMG/status.png" height="65px" />
+                <a href=@Url.Action("Index", "Realizacjas")>
+                    Realizacja
+                </a>
+            </h2>
+        </p>
+        <p>
+            Tabela zawierająca możliwe dostępne statusy realizacji zlecenia.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <img src="~/IMG/truck-icon.png" height="65px" />
+                <a href=@Url.Action("Index", "Samochod")>
+                    Samochód
+                </a>
+            </h2>
+        </p>
+        <p>Spis wszystkich pojazdów w firmie, zarówno pojazdy niezbędne do utrzymania transportu oraz pojazdy pracownicze niezbędne do prawidłowego funkcjonowania firmy.</p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <img src="~/IMG/serwis.png" height="65px" />
+                <a href=@Url.Action("Index", "Serwis")>
+                    Serwis
+                </a>
+            </h2>
+        </p>
+        <p>Informacje o zaprzyjażnionych serwisach z którymi firma ma podpisane umowy na serwisowanie pojazdów.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <img src="~/IMG/uprawnienia.png" height="65px" />
+                <a href=@Url.Action("Index", "Uprawnienia")>
+                    Uprawnienia
+                </a>
+            </h2>
+        </p>
+        <p>
+            Informacje o uprawnieniach do wykonywania transportu dla danago kierowcy. 
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <img src="~/IMG/zlecenia.png" height="65px" />
+                <a href=@Url.Action("Index", "Zlecenie")>
+                    Zlecenie
+                </a>
+            </h2>
+        </p>
+        <p>Informacje o zleceniach.</p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <img src="~/IMG/paczka.jpg" height="65px" />
+                <a href=@Url.Action("Index", "Paczka")>
+                    Paczka
+                </a>
+            </h2>
+        </p>
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <img src="~/IMG/user.png" height="65px" />
+                <a href=@Url.Action("Index", "Uzytkownik")>
+                    Użytkownik
+                </a>
+            </h2>
+        </p>
+        <p>
+            Konta użytkowników systemu.
+        </p>
     </div>
 </div>

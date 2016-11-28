@@ -80,6 +80,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -196,14 +198,87 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CennikController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KierowcasController.cs" />
+    <Compile Include="Controllers\KlientController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NaprawaController.cs" />
+    <Compile Include="Controllers\PaczkaController.cs" />
+    <Compile Include="Controllers\PracownikController.cs" />
+    <Compile Include="Controllers\PrzewozController.cs" />
+    <Compile Include="Controllers\RealizacjasController.cs" />
+    <Compile Include="Controllers\SamochodController.cs" />
+    <Compile Include="Controllers\SerwisController.cs" />
+    <Compile Include="Controllers\UprawnieniaController.cs" />
+    <Compile Include="Controllers\UzytkownikController.cs" />
+    <Compile Include="Controllers\ZlecenieController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Cennik.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Kierowca.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Klient.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ModelDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Nadanie.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Naprawa.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Odbior.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Paczka.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pracownik.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Przewoz.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Realizacja.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Samochod.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Serwis.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Uprawnienia.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Uzytkownik.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Zlecenie.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -218,10 +293,44 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="IMG\cennik.png" />
+    <Content Include="IMG\client.png" />
+    <Content Include="IMG\driver.png" />
+    <Content Include="IMG\logo.png" />
+    <Content Include="IMG\mvc_logo.png" />
+    <Content Include="IMG\naprawa.jpg" />
+    <Content Include="IMG\paczka.jpg" />
+    <Content Include="IMG\pb_logo.jpg" />
+    <Content Include="IMG\pracownik.png" />
+    <Content Include="IMG\repair.jpg" />
+    <Content Include="IMG\serwis.png" />
+    <Content Include="IMG\status.png" />
+    <Content Include="IMG\transport.jpg" />
+    <Content Include="IMG\truck-icon.png" />
+    <Content Include="IMG\uprawnienia.png" />
+    <Content Include="IMG\user.png" />
+    <Content Include="IMG\zlecenia.png" />
+    <Content Include="Models\ModelDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <LastGenOutput>ModelDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\ModelDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelDB.edmx.diagram">
+      <DependentUpon>ModelDB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -235,7 +344,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -269,8 +380,75 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Realizacjas\Create.cshtml" />
+    <Content Include="Views\Realizacjas\Delete.cshtml" />
+    <Content Include="Views\Realizacjas\Details.cshtml" />
+    <Content Include="Views\Realizacjas\Edit.cshtml" />
+    <Content Include="Views\Realizacjas\Index.cshtml" />
+    <Content Include="Views\Uzytkownik\Create.cshtml" />
+    <Content Include="Views\Uzytkownik\Delete.cshtml" />
+    <Content Include="Views\Uzytkownik\Details.cshtml" />
+    <Content Include="Views\Uzytkownik\Edit.cshtml" />
+    <Content Include="Views\Uzytkownik\Index.cshtml" />
+    <Content Include="Views\Kierowcas\Create.cshtml" />
+    <Content Include="Views\Kierowcas\Delete.cshtml" />
+    <Content Include="Views\Kierowcas\Details.cshtml" />
+    <Content Include="Views\Kierowcas\Edit.cshtml" />
+    <Content Include="Views\Kierowcas\Index.cshtml" />
+    <Content Include="Views\Klient\Create.cshtml" />
+    <Content Include="Views\Klient\Delete.cshtml" />
+    <Content Include="Views\Klient\Details.cshtml" />
+    <Content Include="Views\Klient\Edit.cshtml" />
+    <Content Include="Views\Klient\Index.cshtml" />
+    <Content Include="Views\Cennik\Create.cshtml" />
+    <Content Include="Views\Cennik\Delete.cshtml" />
+    <Content Include="Views\Cennik\Details.cshtml" />
+    <Content Include="Views\Cennik\Edit.cshtml" />
+    <Content Include="Views\Cennik\Index.cshtml" />
+    <Content Include="Views\Pracownik\Create.cshtml" />
+    <Content Include="Views\Pracownik\Delete.cshtml" />
+    <Content Include="Views\Pracownik\Details.cshtml" />
+    <Content Include="Views\Pracownik\Edit.cshtml" />
+    <Content Include="Views\Pracownik\Index.cshtml" />
+    <Content Include="Views\Naprawa\Create.cshtml" />
+    <Content Include="Views\Naprawa\Delete.cshtml" />
+    <Content Include="Views\Naprawa\Details.cshtml" />
+    <Content Include="Views\Naprawa\Edit.cshtml" />
+    <Content Include="Views\Naprawa\Index.cshtml" />
+    <Content Include="Views\Paczka\Create.cshtml" />
+    <Content Include="Views\Paczka\Delete.cshtml" />
+    <Content Include="Views\Paczka\Details.cshtml" />
+    <Content Include="Views\Paczka\Edit.cshtml" />
+    <Content Include="Views\Paczka\Index.cshtml" />
+    <Content Include="Views\Przewoz\Create.cshtml" />
+    <Content Include="Views\Przewoz\Delete.cshtml" />
+    <Content Include="Views\Przewoz\Details.cshtml" />
+    <Content Include="Views\Przewoz\Edit.cshtml" />
+    <Content Include="Views\Przewoz\Index.cshtml" />
+    <Content Include="Views\Samochod\Create.cshtml" />
+    <Content Include="Views\Samochod\Delete.cshtml" />
+    <Content Include="Views\Samochod\Details.cshtml" />
+    <Content Include="Views\Samochod\Edit.cshtml" />
+    <Content Include="Views\Samochod\Index.cshtml" />
+    <Content Include="Views\Serwis\Create.cshtml" />
+    <Content Include="Views\Serwis\Delete.cshtml" />
+    <Content Include="Views\Serwis\Details.cshtml" />
+    <Content Include="Views\Serwis\Edit.cshtml" />
+    <Content Include="Views\Serwis\Index.cshtml" />
+    <Content Include="Views\Zlecenie\Create.cshtml" />
+    <Content Include="Views\Zlecenie\Delete.cshtml" />
+    <Content Include="Views\Zlecenie\Details.cshtml" />
+    <Content Include="Views\Zlecenie\Edit.cshtml" />
+    <Content Include="Views\Zlecenie\Index.cshtml" />
+    <Content Include="Views\Uprawnienia\Create.cshtml" />
+    <Content Include="Views\Uprawnienia\Delete.cshtml" />
+    <Content Include="Views\Uprawnienia\Details.cshtml" />
+    <Content Include="Views\Uprawnienia\Edit.cshtml" />
+    <Content Include="Views\Uprawnienia\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -279,6 +457,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

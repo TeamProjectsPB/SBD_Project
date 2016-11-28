@@ -4937,6 +4937,14 @@ a.list-group-item.active > .badge,
   background-color: #eeeeee;
 }
 
+.jumbotron-medium {
+  font-size: 16px;
+}
+
+.jumbotron-small {
+  font-size: 12px;
+}
+
 .jumbotron h1 {
   line-height: 1;
   color: inherit;
