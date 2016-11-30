@@ -316,6 +316,7 @@
     <Content Include="IMG\truck-icon.png" />
     <Content Include="IMG\uprawnienia.png" />
     <Content Include="IMG\user.png" />
+    <Content Include="IMG\userdata.png" />
     <Content Include="IMG\zlecenia.png" />
     <Content Include="Models\ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -454,6 +455,7 @@
     <Content Include="Views\Uprawnienia\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Career.cshtml" />
+    <Content Include="Views\Home\IndexDriver.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

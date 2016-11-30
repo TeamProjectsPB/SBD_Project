@@ -69,6 +69,36 @@ textarea {
     font-size: 16px;
 }
 
+.my-row {
+  margin-right: -15px;
+  margin-left: -15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 2px;
+    border-color: #FFCB73;
+    border-style: solid
+}
+
+.my-row:before,
+.my-row:after {
+  display: table;
+  content: " ";
+}
+
+.my-row:after {
+  clear: both;
+}
+
+.my-row:before,
+.my-row:after {
+  display: table;
+  content: " ";
+}
+
+.my-row:after {
+  clear: both;
+}
+
 .borderless table {
     border-top-style: none;
     border-left-style: none;

@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="my-jumbotron">
+    <h2>Witaj !</h2>
+    <p class="lead">Witaj w panelu administaracyjnym przeznaczonym dla kierowcy LHD. 
+    Z tego miejsca masz możliwość przeglądania planu najbliższych przewozów oraz zarządzania informacjami o posiadanych uprawnieniach.</p>
+</div>
+
+<div class="my-row" style="padding: 20px">
+    <div class="col-md-2">
+        <p>
+            <h2>
+                <img src="~/IMG/userdata.png" height="65px"/>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <a href=@Url.Action("Index", "Kierowcas")>
+                    Dane osobowe
+                </a>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-6" style="font-size: 20px;color: #7F7460">
+        <p>Informacje odnośnie Twojej osoby. Podstawowe dane osobowe jak adres zamieszkania, numer telefonu. Jeśli coś uległo zmianie zaktualizuj swój profil to proste !</p>
+    </div>
+</div>
+
+<div class="my-row" style="padding: 20px">
+    <div class="col-md-2">
+        <p>
+            <h2>
+                <img src="~/IMG/uprawnienia.png" height="85px"/>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <a href=@Url.Action("Index", "Uprawnienia")>
+                    Moje uprawnienia
+                </a>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-6" style="font-size: 20px;color: #7F7460">
+        <p>Nabyłeś nowe uprawnienia? Stare straciły ważność? Skorzystaj z tego menu jeśli chcesz zaktualizować informacje o posiadanych uprawnieniach do przewozu rzeczy.</p>
+    </div>
+</div>
+
+<div class="my-row" style="padding: 20px">
+    <div class="col-md-2">
+        <p>
+            <h2>
+                <img src="~/IMG/transport.jpg" height="65px" />
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <a href=@Url.Action("Index", "Kierowcas")>
+                    Przewozy
+                </a>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-6" style="font-size: 20px;color: #7F7460">
+        <p>W trosce o bezpieczeństwo oraz terminowość doręczeń zamówień, możesz zobaczyć swoje najbliższe zaplanowane przewozy.</p>
+    </div>
+</div>
