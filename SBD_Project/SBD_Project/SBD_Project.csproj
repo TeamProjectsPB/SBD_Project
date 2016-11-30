@@ -273,7 +273,6 @@
     <Compile Include="Models\Uprawnienia.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UzytkownikModel.cs" />
     <Compile Include="Models\Uzytkownik.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -294,22 +293,30 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="IMG\addres.png" />
     <Content Include="IMG\cennik.png" />
     <Content Include="IMG\client.png" />
     <Content Include="IMG\driver.png" />
+    <Content Include="IMG\email.png" />
+    <Content Include="IMG\fast.png" />
     <Content Include="IMG\logo.png" />
     <Content Include="IMG\mvc_logo.png" />
     <Content Include="IMG\naprawa.jpg" />
+    <Content Include="IMG\offer.png" />
     <Content Include="IMG\paczka.jpg" />
     <Content Include="IMG\pb_logo.jpg" />
+    <Content Include="IMG\phone.png" />
     <Content Include="IMG\pracownik.png" />
     <Content Include="IMG\repair.jpg" />
+    <Content Include="IMG\security.png" />
+    <Content Include="IMG\security1.png" />
     <Content Include="IMG\serwis.png" />
     <Content Include="IMG\status.png" />
     <Content Include="IMG\transport.jpg" />
     <Content Include="IMG\truck-icon.png" />
     <Content Include="IMG\uprawnienia.png" />
     <Content Include="IMG\user.png" />
+    <Content Include="IMG\userdata.png" />
     <Content Include="IMG\zlecenia.png" />
     <Content Include="Models\ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -447,8 +454,9 @@
     <Content Include="Views\Uprawnienia\Edit.cshtml" />
     <Content Include="Views\Uprawnienia\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Uzytkownik\Register.cshtml" />
-    <Content Include="Views\Uzytkownik\Login.cshtml" />
+    <Content Include="Views\Home\Career.cshtml" />
+    <Content Include="Views\Home\IndexDriver.cshtml" />
+    <Content Include="Views\Home\IndexEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<SBD_Project.Models.Samochod>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Samochód";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Samochód</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table" style="font-size: 16px; text-align: justify;color: #7F7460">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.NumerRej)

@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #fbe9d4;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -38,15 +39,23 @@ textarea {
 }
 
 .my-jumbotron {
-  padding: 30px;
+  padding: 20px;
   margin-bottom: 30px;
-  font-size: 21px;
-  font-weight: 200;
+  font-size: 20px;
+  font-weight: 150;
   text-align: justify
   line-height: 2.1428571435;
   color: #7F7460;
   background-color: #FFCB73;
+    border-radius: 15px;
 }
+
+  .my-col-md-4 {
+    width: 33.33333333333333%;
+    border: 2px;
+    border-color: #FFCB73;
+    border-style: solid
+  }
 
 .my-navbar {
   background-color: #7F7460;
@@ -67,6 +76,37 @@ textarea {
 .my-navbar-text{
   color: #FFCB73;
     font-size: 16px;
+}
+
+.my-row {
+  margin-right: -15px;
+  margin-left: -15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 2px;
+    border-color: #FFCB73;
+    border-style: solid;
+    border-radius: 15px;
+}
+
+.my-row:before,
+.my-row:after {
+  display: table;
+  content: " ";
+}
+
+.my-row:after {
+  clear: both;
+}
+
+.my-row:before,
+.my-row:after {
+  display: table;
+  content: " ";
+}
+
+.my-row:after {
+  clear: both;
 }
 
 .borderless table {
