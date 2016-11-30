@@ -20,6 +20,27 @@ namespace SBD_Project.Controllers
             return View();
         }
 
+        public ActionResult IndexUser()
+        {
+            if (User.IsInRole("Administrator"))
+            {
+//                return Redirect("IndexAdmin");
+                return View("IndexAdmin");
+            }
+            else if (User.IsInRole("Pracownik"))
+            {
+                return View("IndexEmployee");
+            }
+            else if (User.IsInRole("Kierowca"))
+            {
+                return View("IndexDriver");
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+
         public ActionResult IndexAdmin()
         {
             ViewBag.Message = "Your application description page.";

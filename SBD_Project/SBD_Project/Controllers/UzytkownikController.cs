@@ -195,7 +195,8 @@ namespace SBD_Project.Controllers
 
                 HttpContext.GetOwinContext().Authentication.SignIn(
                    new AuthenticationProperties { IsPersistent = false }, ident);
-                return RedirectToAction("Index"); // auth succeed 
+                //return RedirectToAction("Index"); // auth succeed 
+                return RedirectToAction("Index", "Home");
             }
             else
             {
