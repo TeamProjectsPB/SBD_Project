@@ -27,6 +27,11 @@ namespace SBD_Project.Controllers
             return View();
         }
 
+        public ActionResult Career()
+        {
+            return View();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

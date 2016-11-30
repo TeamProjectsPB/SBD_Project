@@ -453,6 +453,7 @@
     <Content Include="Views\Uprawnienia\Edit.cshtml" />
     <Content Include="Views\Uprawnienia\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Career.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
