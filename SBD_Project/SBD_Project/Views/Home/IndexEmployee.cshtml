@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="my-jumbotron">
+    <h2>Witaj !</h2>
+    <p class="lead">
+        Witaj w panelu administaracyjnym przeznaczonym dla pracownika LHD.
+        Z tego miejsca masz możliwość dodanie nowej paczki do systemu, zaplanowanie przewozu i dodanie konkretnej paczki danego przewozu.
+    </p>
+</div>
+
+<div class="my-row" style="padding: 20px">
+    <div class="col-md-2">
+        <p>
+            <h2>
+                <img src="~/IMG/userdata.png" height="65px" />
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <a href=@Url.Action("Index", "Pracownik")>
+                    Dane osobowe
+                </a>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-6" style="font-size: 20px;color: #7F7460">
+        <p>Informacje odnośnie Twojej osoby. Podstawowe dane osobowe jak adres zamieszkania, numer telefonu. Jeśli coś uległo zmianie zaktualizuj swój profil to proste !</p>
+    </div>
+</div>
+
+<div class="my-row" style="padding: 20px">
+    <div class="col-md-2">
+        <p>
+            <h2>
+                <img src="~/IMG/paczka.jpg" height="85px" />
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <a href=@Url.Action("Index", "Paczka")>
+                    Paczka
+                </a>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-6" style="font-size: 20px;color: #7F7460">
+        <p>Wprowadź nową paczkę do systemu, wybierz tarnsport w, którym zostanie przewieziona lub usuń ją z systemu.</p>
+    </div>
+</div>
+
+<div class="my-row" style="padding: 20px">
+    <div class="col-md-2">
+        <p>
+            <h2>
+                <img src="~/IMG/cennik.png" height="65px"/>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <a href=@Url.Action("Index", "Cennik")>
+                    Cennik
+                </a>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-6" style="font-size: 20px; color: #7F7460">
+        <p>Firma nie uwzględnia ceny palety? Brakuje informacji w cenniku, no problem w tym miejscu uzupełnisz wszystkie brakujące informacje lub zaktualizujesz obowiązujące ceny.</p>
+    </div>
+</div>
+
+<div class="my-row" style="padding: 20px">
+    <div class="col-md-2">
+        <p>
+            <h2>
+                <img src="~/IMG/repair.jpg" height="65px"/>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <a href=@Url.Action("Index", "Naprawa")>
+                    Naprawa
+                </a>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-6" style="font-size: 20px; color: #7F7460">
+        <p>W firmie zepsuł się samochód? Zgłoś usterkę poprzez formularz aby serwis dowiedział się o konieczności naprawy danego samochodu.</p>
+    </div>
+</div>
+
+<div class="my-row" style="padding: 20px">
+    <div class="col-md-2">
+        <p>
+            <h2>
+                <img src="~/IMG/transport.jpg" height="65px" />
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <h2>
+                <a href=@Url.Action("Index", "Przewoz")>
+                    Przewozy
+                </a>
+            </h2>
+        </p>
+    </div>
+    <div class="col-md-6" style="font-size: 20px;color: #7F7460">
+        <p>W trosce o bezpieczeństwo oraz terminowość doręczeń zamówień, możesz zobaczyć zaplanowane przewozy oraz dodać nowe, które mają zostać wykonane. Zarezerwuj pojazd oraz kierowcę.</p>
+    </div>
+</div>
