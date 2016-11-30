@@ -273,6 +273,7 @@
     <Compile Include="Models\Uprawnienia.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UzytkownikModel.cs" />
     <Compile Include="Models\Uzytkownik.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -446,6 +447,8 @@
     <Content Include="Views\Uprawnienia\Edit.cshtml" />
     <Content Include="Views\Uprawnienia\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Uzytkownik\Register.cshtml" />
+    <Content Include="Views\Uzytkownik\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
