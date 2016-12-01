@@ -113,6 +113,10 @@ namespace SBD_Project.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Uprawnienia uprawnienia = db.Uprawnienia.Find(id);
+            if (User.IsInRole("Kierowca") && !uprawnienia.FK_Kierowca.ToString().Equals(User.Identity.GetUserId()))
+            {
+                return RedirectToAction("IndexUser", new { id = uprawnienia.FK_Kierowca });
+            }
             if (uprawnienia == null)
             {
                 return HttpNotFound();
@@ -169,6 +173,10 @@ namespace SBD_Project.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Uprawnienia uprawnienia = db.Uprawnienia.Find(id);
+            if (User.IsInRole("Kierowca") && uprawnienia.FK_Kierowca.ToString().Equals(User.Identity.GetUserId()))
+            {
+                return RedirectToAction("IndexUser", new { id = uprawnienia.FK_Kierowca });
+            }
             db.Uprawnienia.Remove(uprawnienia);
             db.SaveChanges();
             if (User.IsInRole("Kierowca"))
