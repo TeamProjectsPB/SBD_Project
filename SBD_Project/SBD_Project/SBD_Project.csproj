@@ -201,7 +201,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KierowcasController.cs" />
     <Compile Include="Controllers\KlientController.cs" />
+    <Compile Include="Controllers\NadaniesController.cs" />
     <Compile Include="Controllers\NaprawaController.cs" />
+    <Compile Include="Controllers\OdbiorController.cs" />
     <Compile Include="Controllers\PaczkaController.cs" />
     <Compile Include="Controllers\PracownikController.cs" />
     <Compile Include="Controllers\PrzewozController.cs" />
@@ -214,6 +216,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AllModels.cs" />
     <Compile Include="Models\Cennik.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -436,6 +439,16 @@
     <Content Include="Views\Home\IndexDriver.cshtml" />
     <Content Include="Views\Home\IndexEmployee.cshtml" />
     <Content Include="Views\Uprawnienia\CreateByUser.cshtml" />
+    <Content Include="Views\Nadanies\Create.cshtml" />
+    <Content Include="Views\Nadanies\Delete.cshtml" />
+    <Content Include="Views\Nadanies\Details.cshtml" />
+    <Content Include="Views\Nadanies\Edit.cshtml" />
+    <Content Include="Views\Nadanies\Index.cshtml" />
+    <Content Include="Views\Odbior\Create.cshtml" />
+    <Content Include="Views\Odbior\Delete.cshtml" />
+    <Content Include="Views\Odbior\Details.cshtml" />
+    <Content Include="Views\Odbior\Edit.cshtml" />
+    <Content Include="Views\Odbior\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
