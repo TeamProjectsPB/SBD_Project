@@ -48,7 +48,7 @@ namespace SBD_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FK_Uzytkownik,Nazwisko,Imie")] Pracownik pracownik)
+        public ActionResult Create([Bind(Include = "FK_Uzytkownik,Nazwisko,Imie,NumerMieszkania,NumerDomu,KodPocztowy,Miasto,Ulica,Telefon")] Pracownik pracownik)
         {
             if (ModelState.IsValid)
             {

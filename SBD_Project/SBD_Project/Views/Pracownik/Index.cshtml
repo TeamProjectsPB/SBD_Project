@@ -19,6 +19,24 @@
             @Html.DisplayNameFor(model => model.Imie)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.KodPocztowy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ulica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumerDomu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumerMieszkania)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Uzytkownik.Login)
         </th>
         <th></th>
@@ -34,6 +52,24 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Uzytkownik.Login)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KodPocztowy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miasto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ulica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumerDomu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumerMieszkania)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefon)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.FK_Uzytkownik }) |

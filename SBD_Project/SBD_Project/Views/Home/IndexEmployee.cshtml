@@ -1,11 +1,12 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="my-jumbotron">
     <h2>Witaj !</h2>
     <p class="lead">
-        Witaj w panelu administaracyjnym przeznaczonym dla pracownika LHD.
+        Witaj @User.Identity.GetUserName() ! w panelu administaracyjnym przeznaczonym dla pracownika LHD.
         Z tego miejsca masz możliwość dodanie nowej paczki do systemu, zaplanowanie przewozu i dodanie konkretnej paczki danego przewozu.
     </p>
 </div>
@@ -21,7 +22,7 @@
     <div class="col-md-4">
         <p>
             <h2>
-                <a href=@Url.Action("Index", "Pracownik")>
+                <a href=@Url.Action("Edit", "Pracownik",new {Id=User.Identity.GetUserId()})>
                     Dane osobowe
                 </a>
             </h2>
