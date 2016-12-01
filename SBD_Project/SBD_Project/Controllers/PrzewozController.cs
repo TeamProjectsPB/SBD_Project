@@ -21,6 +21,12 @@ namespace SBD_Project.Controllers
             return View(przewoz.ToList());
         }
 
+        public ActionResult DriversIndex(int id)
+        {
+
+            var przewoz = db.Przewoz.Include(p => p.Kierowca).Include(p => p.Samochod).Include(p => p.Paczka);
+            return View();
+        }
         // GET: Przewoz/Details/5
         public ActionResult Details(int? id)
         {

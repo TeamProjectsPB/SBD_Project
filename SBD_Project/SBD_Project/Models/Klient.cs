@@ -53,7 +53,10 @@ namespace SBD_Project.Models
         [Display(Name = "Imiê i nazwisko")]
         public string ImieNazwisko { get { return Imie + " " + Nazwisko; } }
 
+        [Display(Name = "Nadanie")]
         public virtual Nadanie Nadanie { get; set; }
+
+        [Display(Name = "Odbiór")]
         public virtual Odbior Odbior { get; set; }
     }
 }

@@ -52,7 +52,10 @@ namespace SBD_Project.Models
         [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
         public decimal Telefon { get; set; }
 
+        [Display(Name = "U¿ytkownik")]
         public virtual Uzytkownik Uzytkownik { get; set; }
+
+        [Display(Name = "Zlecenie")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zlecenie> Zlecenie { get; set; }
     }

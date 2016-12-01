@@ -34,7 +34,8 @@ namespace SBD_Project.Models
         [Display(Name = "Data do")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime DataDo { get; set; }
-    
+
+        [Display(Name = "Kierowca")]
         public virtual Kierowca Kierowca { get; set; }
     }
 }

@@ -35,8 +35,11 @@ namespace SBD_Project.Models
 
         [Display(Name = "Uwagi")]
         public string Uwagi { get; set; }
-    
+
+        [Display(Name = "Przewóz")]
         public virtual Przewoz Przewoz { get; set; }
+
+        [Display(Name = "Zlecenie")]
         public virtual Zlecenie Zlecenie { get; set; }
     }
 }

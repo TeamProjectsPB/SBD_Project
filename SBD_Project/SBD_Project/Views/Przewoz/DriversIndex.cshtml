@@ -1,0 +1,42 @@
+﻿@model SBD_Project.Models.Przewoz
+
+@{
+    ViewBag.Title = "DriversIndex";
+}
+
+<h2>DriversIndex</h2>
+
+<div>
+    <h4>Przewoz</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPrzewozu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPrzewozu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kierowca.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kierowca.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Samochod.NumerRej)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Samochod.NumerRej)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

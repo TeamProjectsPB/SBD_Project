@@ -58,9 +58,14 @@ namespace SBD_Project.Models
         [Display(Name="Imiê i nazwisko")]
         public string ImieNazwisko { get { return Imie + " " + Nazwisko; } }
     
+        [Display(Name ="U¿ytkownik")]
         public virtual Uzytkownik Uzytkownik { get; set; }
+
+        [Display(Name = "Przewóz")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Przewoz> Przewoz { get; set; }
+
+        [Display(Name = "Uprawnienia")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Uprawnienia> Uprawnienia { get; set; }
     }
