@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using SBD_Project.Models;
 
 namespace SBD_Project.Controllers
@@ -15,10 +16,26 @@ namespace SBD_Project.Controllers
         private SBD_DBEntities db = new SBD_DBEntities();
 
         // GET: Uprawnienia
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Index()
         {
+            //IQueryable<Uprawnienia> uprawnienia;
+            //if (id != null)
+            //{
+            //    uprawnienia = db.Uprawnienia.Include(u => u.Kierowca).Where(u => u.FK_Kierowca == id);
+            //}
+            //else
+            //{
+            //    uprawnienia = db.Uprawnienia.Include(u => u.Kierowca);
+            //}
             var uprawnienia = db.Uprawnienia.Include(u => u.Kierowca);
             return View(uprawnienia.ToList());
+        }
+        [Authorize(Roles = "Administrator, Pracownik, Kierowca")]
+        public ActionResult IndexUser(int id)
+        {
+            var uprawnienia = db.Uprawnienia.Include(u => u.Kierowca).Where(u => u.FK_Kierowca == id);
+            return View("Index", uprawnienia.ToList());
         }
 
         // GET: Uprawnienia/Details/5
@@ -39,7 +56,7 @@ namespace SBD_Project.Controllers
         // GET: Uprawnienia/Create
         public ActionResult Create()
         {
-            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "Nazwisko");
+                ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "ImieNazwisko");
             return View();
         }
 

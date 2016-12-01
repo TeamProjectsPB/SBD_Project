@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace SBD_Project.Models
 {
     using System;
@@ -21,8 +23,15 @@ namespace SBD_Project.Models
         }
     
         public int ID { get; set; }
+
+        [Display(Name="Samochód")]
         public int FK_Samochod { get; set; }
+
+        [Display(Name = "Kierowca")]
         public int FK_Kierowca { get; set; }
+
+        [Display(Name = "Data przewozu")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime DataPrzewozu { get; set; }
     
         public virtual Kierowca Kierowca { get; set; }

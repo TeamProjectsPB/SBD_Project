@@ -24,7 +24,6 @@ namespace SBD_Project.Controllers
         {
             if (User.IsInRole("Administrator"))
             {
-//                return Redirect("IndexAdmin");
                 return View("IndexAdmin");
             }
             else if (User.IsInRole("Pracownik"))
@@ -40,21 +39,22 @@ namespace SBD_Project.Controllers
                 return View("Index");
             }
         }
-
+        [Authorize(Roles="Administrator")]
         public ActionResult IndexAdmin()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
+        [Authorize(Roles = "Kierowca")]
         public ActionResult IndexDriver()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-        
-            public ActionResult IndexEmployee()
+        [Authorize(Roles = "Pracownik")]
+        public ActionResult IndexEmployee()
         {
             ViewBag.Message = "Your application description page.";
 

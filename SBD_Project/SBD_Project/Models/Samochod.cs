@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace SBD_Project.Models
 {
     using System;
@@ -22,11 +24,23 @@ namespace SBD_Project.Models
         }
     
         public int ID { get; set; }
+
+        [Display(Name = "Numer rejestracyjny")]
         public string NumerRej { get; set; }
+
+        [Display(Name = "Wolny")]
         public byte CzyWolny { get; set; }
+
+        [Display(Name = "Marka")]
         public string Marka { get; set; }
+
+        [Display(Name = "Model")]
         public string Model { get; set; }
+
+        [Display(Name = "Tona¿")]
         public decimal Tonaz { get; set; }
+
+        [Display(Name = "Opis")]
         public string Opis { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

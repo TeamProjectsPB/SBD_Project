@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace SBD_Project.Models
 {
     using System;
@@ -21,7 +23,12 @@ namespace SBD_Project.Models
         }
     
         public int ID { get; set; }
+
+        [Display(Name = "Klient")]
         public int FK_Klient { get; set; }
+
+        [Display(Name = "Klient")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime Data { get; set; }
     
         public virtual Klient Klient { get; set; }

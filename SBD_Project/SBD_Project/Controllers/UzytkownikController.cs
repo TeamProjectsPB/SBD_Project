@@ -55,7 +55,8 @@ namespace SBD_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Login,Hasło,Typ")] Uzytkownik uzytkownik)
+        //public ActionResult Create([Bind(Include = "ID,Login,Hasło,Typ")] Uzytkownik uzytkownik)
+        public ActionResult Create(Uzytkownik uzytkownik)
         {
             if (ModelState.IsValid)
             {
@@ -195,7 +196,6 @@ namespace SBD_Project.Controllers
 
                 HttpContext.GetOwinContext().Authentication.SignIn(
                    new AuthenticationProperties { IsPersistent = false }, ident);
-                //return RedirectToAction("Index"); // auth succeed 
                 return RedirectToAction("Index", "Home");
             }
             else

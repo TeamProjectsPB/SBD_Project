@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace SBD_Project.Models
 {
     using System;
@@ -21,11 +23,22 @@ namespace SBD_Project.Models
         }
     
         public int ID { get; set; }
+
+        [Display(Name = "Realizacja")]
         public int FK_Realizacja { get; set; }
+
+        [Display(Name = "Nadanie")]
         public int FK_Nadanie { get; set; }
+
+        [Display(Name = "Odbiór")]
         public int FK_Odbior { get; set; }
+
+        [Display(Name = "Pracownik")]
         public int FK_Pracownik { get; set; }
         public string Lokalizacja { get; set; }
+
+        [Display(Name = "Data zlecenia")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime DataZlecenia { get; set; }
     
         public virtual Nadanie Nadanie { get; set; }

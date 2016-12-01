@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace SBD_Project.Models
 {
     using System;
@@ -19,9 +21,13 @@ namespace SBD_Project.Models
         {
             this.Zlecenie = new HashSet<Zlecenie>();
         }
-    
+        [Display(Name="U¿ytkownik")]
         public int FK_Uzytkownik { get; set; }
+
+        [Display(Name = "Nazwisko")]
         public string Nazwisko { get; set; }
+
+        [Display(Name = "Imiê")]
         public string Imie { get; set; }
     
         public virtual Uzytkownik Uzytkownik { get; set; }
