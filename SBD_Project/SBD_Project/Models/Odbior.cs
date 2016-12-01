@@ -8,6 +8,7 @@
 //------------------------------------------------------------------------------
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SBD_Project.Models
 {
@@ -24,17 +25,17 @@ namespace SBD_Project.Models
     
         public int ID { get; set; }
 
-        [Display(Name="Klient")]
+        [Display(Name = "Klient")]
         public int FK_Klient { get; set; }
 
         [Display(Name = "Data odbioru")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime Data { get; set; }
 
-        [Display(Name = "Klient")]
+        [NotMapped]
+        [Display(Name = "Nadanie")]
+        public string Opis { get { return Data + ": " + Klient.ImieNazwisko; } }
         public virtual Klient Klient { get; set; }
-
-        [Display(Name = "Zlecenie")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zlecenie> Zlecenie { get; set; }
     }

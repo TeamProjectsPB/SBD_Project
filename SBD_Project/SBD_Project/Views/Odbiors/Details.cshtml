@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
@@ -11,14 +10,6 @@
     <h4>Odbior</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FK_Klient)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FK_Klient)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Data)
         </dt>

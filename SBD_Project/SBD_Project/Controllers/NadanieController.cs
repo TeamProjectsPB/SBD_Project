@@ -10,112 +10,112 @@ using SBD_Project.Models;
 
 namespace SBD_Project.Controllers
 {
-    public class OdbiorController : Controller
+    public class NadanieController : Controller
     {
         private SBD_DBEntities db = new SBD_DBEntities();
 
-        // GET: Odbior
+        // GET: Nadanie
         public ActionResult Index()
         {
-            var odbior = db.Odbior.Include(o => o.Klient);
-            return View(odbior.ToList());
+            var nadanie = db.Nadanie.Include(n => n.Klient);
+            return View(nadanie.ToList());
         }
 
-        // GET: Odbior/Details/5
+        // GET: Nadanie/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Odbior odbior = db.Odbior.Find(id);
-            if (odbior == null)
+            Nadanie nadanie = db.Nadanie.Find(id);
+            if (nadanie == null)
             {
                 return HttpNotFound();
             }
-            return View(odbior);
+            return View(nadanie);
         }
 
-        // GET: Odbior/Create
+        // GET: Nadanie/Create
         public ActionResult Create()
         {
-            ViewBag.ID = new SelectList(db.Klient, "ID", "Imie");
+            ViewBag.FK_Klient = new SelectList(db.Klient, "ID", "ImieNazwisko");
             return View();
         }
 
-        // POST: Odbior/Create
+        // POST: Nadanie/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FK_Klient,Data")] Odbior odbior)
+        public ActionResult Create([Bind(Include = "ID,FK_Klient,Data")] Nadanie nadanie)
         {
             if (ModelState.IsValid)
             {
-                db.Odbior.Add(odbior);
+                db.Nadanie.Add(nadanie);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID = new SelectList(db.Klient, "ID", "Imie", odbior.ID);
-            return View(odbior);
+            ViewBag.FK_Klient = new SelectList(db.Klient, "ID", "ImieNazwisko", nadanie.FK_Klient);
+            return View(nadanie);
         }
 
-        // GET: Odbior/Edit/5
+        // GET: Nadanie/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Odbior odbior = db.Odbior.Find(id);
-            if (odbior == null)
+            Nadanie nadanie = db.Nadanie.Find(id);
+            if (nadanie == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ID = new SelectList(db.Klient, "ID", "Imie", odbior.ID);
-            return View(odbior);
+            ViewBag.FK_Klient = new SelectList(db.Klient, "ID", "ImieNazwisko", nadanie.FK_Klient);
+            return View(nadanie);
         }
 
-        // POST: Odbior/Edit/5
+        // POST: Nadanie/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FK_Klient,Data")] Odbior odbior)
+        public ActionResult Edit([Bind(Include = "ID,FK_Klient,Data")] Nadanie nadanie)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(odbior).State = EntityState.Modified;
+                db.Entry(nadanie).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID = new SelectList(db.Klient, "ID", "Imie", odbior.ID);
-            return View(odbior);
+            ViewBag.FK_Klient = new SelectList(db.Klient, "ID", "ImieNazwisko", nadanie.FK_Klient);
+            return View(nadanie);
         }
 
-        // GET: Odbior/Delete/5
+        // GET: Nadanie/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Odbior odbior = db.Odbior.Find(id);
-            if (odbior == null)
+            Nadanie nadanie = db.Nadanie.Find(id);
+            if (nadanie == null)
             {
                 return HttpNotFound();
             }
-            return View(odbior);
+            return View(nadanie);
         }
 
-        // POST: Odbior/Delete/5
+        // POST: Nadanie/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Odbior odbior = db.Odbior.Find(id);
-            db.Odbior.Remove(odbior);
+            Nadanie nadanie = db.Nadanie.Find(id);
+            db.Nadanie.Remove(nadanie);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

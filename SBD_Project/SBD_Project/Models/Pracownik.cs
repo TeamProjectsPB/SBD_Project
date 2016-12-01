@@ -52,6 +52,10 @@ namespace SBD_Project.Models
         [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
         public decimal Telefon { get; set; }
 
+        [NotMapped]
+        [Display(Name = "Imiê i nazwisko")]
+        public string ImieNazwisko { get { return Imie + " " + Nazwisko; } }
+
         [Display(Name = "U¿ytkownik")]
         public virtual Uzytkownik Uzytkownik { get; set; }
 

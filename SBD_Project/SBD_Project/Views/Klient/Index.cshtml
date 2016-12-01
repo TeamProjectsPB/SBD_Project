@@ -39,12 +39,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Telefon)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nadanie.ID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Odbior.ID)
-        </th>
         <th></th>
     </tr>
 
@@ -76,12 +70,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Telefon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nadanie.ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Odbior.ID)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

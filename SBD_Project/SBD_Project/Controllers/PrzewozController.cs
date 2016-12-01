@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using SBD_Project.Models;
 
 namespace SBD_Project.Controllers
@@ -15,19 +16,24 @@ namespace SBD_Project.Controllers
         private SBD_DBEntities db = new SBD_DBEntities();
 
         // GET: Przewoz
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Index()
         {
             var przewoz = db.Przewoz.Include(p => p.Kierowca).Include(p => p.Samochod);
             return View(przewoz.ToList());
         }
-
+        [Authorize(Roles = "Administrator, Pracownik, Kierowca")]
         public ActionResult DriversIndex(int id)
         {
-
-            var przewoz = db.Przewoz.Include(p => p.Kierowca).Include(p => p.Samochod).Include(p => p.Paczka);
-            return View();
+            if (User.IsInRole("Kierowca") && !User.Identity.GetUserId().Equals(id))
+            {
+                return RedirectToAction("IndexDriver", "Home");
+            }
+            var przewoz = db.Przewoz.Include(p => p.Kierowca).Include(p => p.Samochod).Include(p => p.Paczka).Where(p => p.FK_Kierowca == id);            
+            return View(przewoz.ToList());
         }
         // GET: Przewoz/Details/5
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -43,10 +49,11 @@ namespace SBD_Project.Controllers
         }
 
         // GET: Przewoz/Create
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Create()
         {
-            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "Nazwisko");
-            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "NumerRej");
+            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "ImieNazwisko");
+            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "MarkaModelNumerRej");
             return View();
         }
 
@@ -55,6 +62,7 @@ namespace SBD_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Create([Bind(Include = "ID,FK_Samochod,FK_Kierowca,DataPrzewozu")] Przewoz przewoz)
         {
             if (ModelState.IsValid)
@@ -64,12 +72,13 @@ namespace SBD_Project.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "Nazwisko", przewoz.FK_Kierowca);
-            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "NumerRej", przewoz.FK_Samochod);
+            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "ImieNazwisko", przewoz.FK_Kierowca);
+            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "MarkaModelNumerRej", przewoz.FK_Samochod);
             return View(przewoz);
         }
 
         // GET: Przewoz/Edit/5
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,8 +90,8 @@ namespace SBD_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "Nazwisko", przewoz.FK_Kierowca);
-            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "NumerRej", przewoz.FK_Samochod);
+            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "ImieNazwisko", przewoz.FK_Kierowca);
+            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "MarkaModelNumerRej", przewoz.FK_Samochod);
             return View(przewoz);
         }
 
@@ -91,6 +100,7 @@ namespace SBD_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Edit([Bind(Include = "ID,FK_Samochod,FK_Kierowca,DataPrzewozu")] Przewoz przewoz)
         {
             if (ModelState.IsValid)
@@ -99,12 +109,13 @@ namespace SBD_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "Nazwisko", przewoz.FK_Kierowca);
-            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "NumerRej", przewoz.FK_Samochod);
+            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "ImieNazwisko", przewoz.FK_Kierowca);
+            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "MarkaModelNumerRej", przewoz.FK_Samochod);
             return View(przewoz);
         }
 
         // GET: Przewoz/Delete/5
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -122,6 +133,7 @@ namespace SBD_Project.Controllers
         // POST: Przewoz/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult DeleteConfirmed(int id)
         {
             Przewoz przewoz = db.Przewoz.Find(id);

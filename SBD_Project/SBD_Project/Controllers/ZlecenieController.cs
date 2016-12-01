@@ -39,9 +39,9 @@ namespace SBD_Project.Controllers
         // GET: Zlecenie/Create
         public ActionResult Create()
         {
-            ViewBag.FK_Nadanie = new SelectList(db.Nadanie, "ID", "ID");
-            ViewBag.FK_Odbior = new SelectList(db.Odbior, "ID", "ID");
-            ViewBag.FK_Pracownik = new SelectList(db.Pracownik, "FK_Uzytkownik", "Nazwisko");
+            ViewBag.FK_Nadanie = new SelectList(db.Nadanie, "ID", "Opis");
+            ViewBag.FK_Odbior = new SelectList(db.Odbior, "ID", "Opis");
+            ViewBag.FK_Pracownik = new SelectList(db.Pracownik, "FK_Uzytkownik", "ImieNazwisko");
             ViewBag.FK_Realizacja = new SelectList(db.Realizacja, "ID", "Status");
             return View();
         }
@@ -60,9 +60,9 @@ namespace SBD_Project.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FK_Nadanie = new SelectList(db.Nadanie, "ID", "ID", zlecenie.FK_Nadanie);
-            ViewBag.FK_Odbior = new SelectList(db.Odbior, "ID", "ID", zlecenie.FK_Odbior);
-            ViewBag.FK_Pracownik = new SelectList(db.Pracownik, "FK_Uzytkownik", "Nazwisko", zlecenie.FK_Pracownik);
+            ViewBag.FK_Nadanie = new SelectList(db.Nadanie, "ID", "Opis", zlecenie.FK_Nadanie);
+            ViewBag.FK_Odbior = new SelectList(db.Odbior, "ID", "Opis", zlecenie.FK_Odbior);
+            ViewBag.FK_Pracownik = new SelectList(db.Pracownik, "FK_Uzytkownik", "ImieNazwisko", zlecenie.FK_Pracownik);
             ViewBag.FK_Realizacja = new SelectList(db.Realizacja, "ID", "Status", zlecenie.FK_Realizacja);
             return View(zlecenie);
         }
@@ -79,9 +79,9 @@ namespace SBD_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FK_Nadanie = new SelectList(db.Nadanie, "ID", "ID", zlecenie.FK_Nadanie);
-            ViewBag.FK_Odbior = new SelectList(db.Odbior, "ID", "ID", zlecenie.FK_Odbior);
-            ViewBag.FK_Pracownik = new SelectList(db.Pracownik, "FK_Uzytkownik", "Nazwisko", zlecenie.FK_Pracownik);
+            ViewBag.FK_Nadanie = new SelectList(db.Nadanie, "ID", "Opis", zlecenie.FK_Nadanie);
+            ViewBag.FK_Odbior = new SelectList(db.Odbior, "ID", "Opis", zlecenie.FK_Odbior);
+            ViewBag.FK_Pracownik = new SelectList(db.Pracownik, "FK_Uzytkownik", "ImieNazwisko", zlecenie.FK_Pracownik);
             ViewBag.FK_Realizacja = new SelectList(db.Realizacja, "ID", "Status", zlecenie.FK_Realizacja);
             return View(zlecenie);
         }
@@ -99,9 +99,9 @@ namespace SBD_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FK_Nadanie = new SelectList(db.Nadanie, "ID", "ID", zlecenie.FK_Nadanie);
-            ViewBag.FK_Odbior = new SelectList(db.Odbior, "ID", "ID", zlecenie.FK_Odbior);
-            ViewBag.FK_Pracownik = new SelectList(db.Pracownik, "FK_Uzytkownik", "Nazwisko", zlecenie.FK_Pracownik);
+            ViewBag.FK_Nadanie = new SelectList(db.Nadanie, "ID", "Opis", zlecenie.FK_Nadanie);
+            ViewBag.FK_Odbior = new SelectList(db.Odbior, "ID", "Opis", zlecenie.FK_Odbior);
+            ViewBag.FK_Pracownik = new SelectList(db.Pracownik, "FK_Uzytkownik", "ImieNazwisko", zlecenie.FK_Pracownik);
             ViewBag.FK_Realizacja = new SelectList(db.Realizacja, "ID", "Status", zlecenie.FK_Realizacja);
             return View(zlecenie);
         }

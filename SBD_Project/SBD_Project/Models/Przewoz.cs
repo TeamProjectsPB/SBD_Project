@@ -8,6 +8,7 @@
 //------------------------------------------------------------------------------
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SBD_Project.Models
 {
@@ -33,6 +34,13 @@ namespace SBD_Project.Models
         [Display(Name = "Data przewozu")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime DataPrzewozu { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Przewóz:")]
+        public string Opis { get
+        {
+            return DataPrzewozu + ", " + Kierowca.ImieNazwisko + ", " + Samochod.MarkaModelNumerRej;
+        } }
 
         [Display(Name = "Kierowca")]
         public virtual Kierowca Kierowca { get; set; }
