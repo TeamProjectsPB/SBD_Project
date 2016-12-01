@@ -8,6 +8,7 @@
 //------------------------------------------------------------------------------
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SBD_Project.Models
 {
@@ -46,6 +47,10 @@ namespace SBD_Project.Models
 
         [Display(Name = "Odbiór")]
         public virtual Odbior Odbior { get; set; }
+
+        [NotMapped]
+        [Display(Name ="Zlecenie")]
+        public string Opis { get { return DataZlecenia + ": " + Lokalizacja; } }
 
         [Display(Name = "Paczka")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -39,7 +39,7 @@ namespace SBD_Project.Controllers
         // GET: Naprawa/Create
         public ActionResult Create()
         {
-            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "NumerRej");
+            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "MarkaModelNumerRej");
             ViewBag.FK_Serwis = new SelectList(db.Serwis, "FK_Uzytkownik", "Nazwa");
             return View();
         }
@@ -58,7 +58,7 @@ namespace SBD_Project.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "NumerRej", naprawa.FK_Samochod);
+            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "MarkaModelNumerRej", naprawa.FK_Samochod);
             ViewBag.FK_Serwis = new SelectList(db.Serwis, "FK_Uzytkownik", "Nazwa", naprawa.FK_Serwis);
             return View(naprawa);
         }
@@ -75,7 +75,7 @@ namespace SBD_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "NumerRej", naprawa.FK_Samochod);
+            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "MarkaModelNumerRej", naprawa.FK_Samochod);
             ViewBag.FK_Serwis = new SelectList(db.Serwis, "FK_Uzytkownik", "Nazwa", naprawa.FK_Serwis);
             return View(naprawa);
         }
@@ -93,7 +93,7 @@ namespace SBD_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "NumerRej", naprawa.FK_Samochod);
+            ViewBag.FK_Samochod = new SelectList(db.Samochod, "ID", "MarkaModelNumerRej", naprawa.FK_Samochod);
             ViewBag.FK_Serwis = new SelectList(db.Serwis, "FK_Uzytkownik", "Nazwa", naprawa.FK_Serwis);
             return View(naprawa);
         }

@@ -1,4 +1,4 @@
-﻿@model SBD_Project.Models.Przewoz
+﻿@model IEnumerable<SBD_Project.Models.Przewoz>
 
 @{
     ViewBag.Title = "DriversIndex";
@@ -6,37 +6,97 @@
 
 <h2>DriversIndex</h2>
 
-<div>
-    <h4>Przewoz</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DataPrzewozu)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DataPrzewozu)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Kierowca.Nazwisko)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Kierowca.Nazwisko)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Samochod.NumerRej)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Samochod.NumerRej)
-        </dd>
-
-    </dl>
-</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Create New", "Create")
 </p>
+
+<div class="panel-group" id="accordion">
+    @foreach (var item in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#@item.ID">Przewóz: @Html.DisplayFor(modelItem => item.DataPrzewozu) Pojazd:@Html.DisplayFor(modelItem => item.Samochod.NumerRej)</a>
+                </h4>
+            </div>
+            <div id="@item.ID" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <table class="table" style="font-size: 16px; text-align: justify;color: #7F7460">
+                        <tr>
+                            <th colspan="4" style="text-align:center">Paczka</th>
+                            <th colspan="5" style="text-align:center">Dane adresowe</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Nazwa
+                            </td>
+                            <td>
+                                Wartość
+                            </td>
+                            <td>
+                                Waga
+                            </td>
+                            <td>
+                                Uwagi
+                            </td>
+                            <td>
+                                Kod pocztowy
+                            </td>
+                            <td>
+                                Miasto
+                            </td>
+                            <td>
+                                Ulica
+                            </td>
+                            <td>
+                                Numer domu
+                            </td>
+                            <td>
+                                Numer mieszkania
+                            </td> 
+                        </tr>
+                        @foreach (var paczka in item.Paczka)
+                        {
+                                <td>
+                                    @Html.DisplayFor(path => paczka.Nazwa)
+                                </td>
+                          
+                                <td>
+                                    @Html.DisplayFor(path => paczka.Wartosc)
+                                </td>
+ 
+                                <td>
+                                    @Html.DisplayFor(path => paczka.Waga)
+                                </td>
+                            
+                                <td>
+                                    @Html.DisplayFor(path => paczka.Uwagi)
+                                </td>
+                            
+                                <td>
+                                    @Html.DisplayFor(path => paczka.Zlecenie.Odbior.Klient.KodPocztowy)
+                                </td>
+                           
+                                <td>
+                                    @Html.DisplayFor(path => paczka.Zlecenie.Odbior.Klient.Miasto)
+                                </td>
+                            
+                                <td>
+                                    @Html.DisplayFor(path => paczka.Zlecenie.Odbior.Klient.Ulica)
+                                </td>
+                          
+                                <td>
+                                    @Html.DisplayFor(path => paczka.Zlecenie.Odbior.Klient.NumerDomu)
+                                </td>
+                          
+                                <td>
+                                    @Html.DisplayFor(path => paczka.Zlecenie.Odbior.Klient.KodPocztowy)
+                                </td>
+
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -39,8 +39,8 @@ namespace SBD_Project.Controllers
         // GET: Paczka/Create
         public ActionResult Create()
         {
-            ViewBag.FK_Przewoz = new SelectList(db.Przewoz, "ID", "ID");
-            ViewBag.FK_Zlecenie = new SelectList(db.Zlecenie, "ID", "Lokalizacja");
+            ViewBag.FK_Przewoz = new SelectList(db.Przewoz, "ID", "Opis");
+            ViewBag.FK_Zlecenie = new SelectList(db.Zlecenie, "ID", "Opis");
             return View();
         }
 
@@ -58,8 +58,8 @@ namespace SBD_Project.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FK_Przewoz = new SelectList(db.Przewoz, "ID", "ID", paczka.FK_Przewoz);
-            ViewBag.FK_Zlecenie = new SelectList(db.Zlecenie, "ID", "Lokalizacja", paczka.FK_Zlecenie);
+            ViewBag.FK_Przewoz = new SelectList(db.Przewoz, "ID", "Opis", paczka.FK_Przewoz);
+            ViewBag.FK_Zlecenie = new SelectList(db.Zlecenie, "ID", "Opis", paczka.FK_Zlecenie);
             return View(paczka);
         }
 
@@ -75,8 +75,8 @@ namespace SBD_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FK_Przewoz = new SelectList(db.Przewoz, "ID", "ID", paczka.FK_Przewoz);
-            ViewBag.FK_Zlecenie = new SelectList(db.Zlecenie, "ID", "Lokalizacja", paczka.FK_Zlecenie);
+            ViewBag.FK_Przewoz = new SelectList(db.Przewoz, "ID", "Opis", paczka.FK_Przewoz);
+            ViewBag.FK_Zlecenie = new SelectList(db.Zlecenie, "ID", "Opis", paczka.FK_Zlecenie);
             return View(paczka);
         }
 
@@ -93,8 +93,8 @@ namespace SBD_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FK_Przewoz = new SelectList(db.Przewoz, "ID", "ID", paczka.FK_Przewoz);
-            ViewBag.FK_Zlecenie = new SelectList(db.Zlecenie, "ID", "Lokalizacja", paczka.FK_Zlecenie);
+            ViewBag.FK_Przewoz = new SelectList(db.Przewoz, "ID", "Opis", paczka.FK_Przewoz);
+            ViewBag.FK_Zlecenie = new SelectList(db.Zlecenie, "ID", "Opis", paczka.FK_Zlecenie);
             return View(paczka);
         }
 

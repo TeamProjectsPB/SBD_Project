@@ -17,9 +17,15 @@ namespace SBD_Project.Models
     
     public partial class Klient
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Klient()
+        {
+            this.Nadanie = new HashSet<Nadanie>();
+            this.Odbior = new HashSet<Odbior>();
+        }
+    
         public int ID { get; set; }
-
-        [Display(Name="Imiê")]
+        [Display(Name = "Imiê")]
         public string Imie { get; set; }
 
         [Display(Name = "Nazwisko")]
@@ -53,10 +59,9 @@ namespace SBD_Project.Models
         [Display(Name = "Imiê i nazwisko")]
         public string ImieNazwisko { get { return Imie + " " + Nazwisko; } }
 
-        [Display(Name = "Nadanie")]
-        public virtual Nadanie Nadanie { get; set; }
-
-        [Display(Name = "Odbiór")]
-        public virtual Odbior Odbior { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Nadanie> Nadanie { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Odbior> Odbior { get; set; }
     }
 }

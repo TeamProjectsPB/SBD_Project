@@ -76,7 +76,7 @@ namespace SBD_Project.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "Nazwisko", uprawnienia.FK_Kierowca);
+            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "ImieNazwisko", uprawnienia.FK_Kierowca);
             return View(uprawnienia);
         }
 
@@ -100,7 +100,7 @@ namespace SBD_Project.Controllers
                 return RedirectToAction("IndexUser", new { id = id });
             }
 
-            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "Nazwisko", uprawnienia.FK_Kierowca);
+            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "ImieNazwisko", uprawnienia.FK_Kierowca);
             return View(uprawnienia);
         }
 
@@ -121,7 +121,7 @@ namespace SBD_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "Nazwisko", uprawnienia.FK_Kierowca);
+            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "ImieNazwisko", uprawnienia.FK_Kierowca);
             return View(uprawnienia);
         }
 
@@ -146,7 +146,7 @@ namespace SBD_Project.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "Nazwisko", uprawnienia.FK_Kierowca);
+            ViewBag.FK_Kierowca = new SelectList(db.Kierowca, "FK_Uzytkownik", "ImieNazwisko", uprawnienia.FK_Kierowca);
             return View(uprawnienia);
         }
 

@@ -80,6 +80,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -88,6 +92,14 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -197,13 +209,14 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CennikController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KierowcasController.cs" />
     <Compile Include="Controllers\KlientController.cs" />
-    <Compile Include="Controllers\NadaniesController.cs" />
+    <Compile Include="Controllers\NadanieController.cs" />
     <Compile Include="Controllers\NaprawaController.cs" />
-    <Compile Include="Controllers\OdbiorController.cs" />
+    <Compile Include="Controllers\OdbiorsController.cs" />
     <Compile Include="Controllers\PaczkaController.cs" />
     <Compile Include="Controllers\PracownikController.cs" />
     <Compile Include="Controllers\PrzewozController.cs" />
@@ -257,6 +270,7 @@
     <Compile Include="Models\Pracownik.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PrzesylkiKierowcy.cs" />
     <Compile Include="Models\Przewoz.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -439,16 +453,17 @@
     <Content Include="Views\Home\IndexDriver.cshtml" />
     <Content Include="Views\Home\IndexEmployee.cshtml" />
     <Content Include="Views\Uprawnienia\CreateByUser.cshtml" />
-    <Content Include="Views\Nadanies\Create.cshtml" />
-    <Content Include="Views\Nadanies\Delete.cshtml" />
-    <Content Include="Views\Nadanies\Details.cshtml" />
-    <Content Include="Views\Nadanies\Edit.cshtml" />
-    <Content Include="Views\Nadanies\Index.cshtml" />
-    <Content Include="Views\Odbior\Create.cshtml" />
-    <Content Include="Views\Odbior\Delete.cshtml" />
-    <Content Include="Views\Odbior\Details.cshtml" />
-    <Content Include="Views\Odbior\Edit.cshtml" />
-    <Content Include="Views\Odbior\Index.cshtml" />
+    <Content Include="Views\Przewoz\DriversIndex.cshtml" />
+    <Content Include="Views\Nadanie\Create.cshtml" />
+    <Content Include="Views\Nadanie\Delete.cshtml" />
+    <Content Include="Views\Nadanie\Details.cshtml" />
+    <Content Include="Views\Nadanie\Edit.cshtml" />
+    <Content Include="Views\Nadanie\Index.cshtml" />
+    <Content Include="Views\Odbiors\Create.cshtml" />
+    <Content Include="Views\Odbiors\Delete.cshtml" />
+    <Content Include="Views\Odbiors\Details.cshtml" />
+    <Content Include="Views\Odbiors\Edit.cshtml" />
+    <Content Include="Views\Odbiors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
