@@ -7,13 +7,13 @@
       <Diagram DiagramId="0dedf7ec47be41409844a173ba6471eb" Name="Diagram1">
         <EntityTypeShape EntityType="SBD_DBModel.Cennik" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SBD_DBModel.Kierowca" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBD_DBModel.Klient" Width="1.5" PointX="3.75" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBD_DBModel.Nadanie" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.Klient" Width="1.5" PointX="9.625" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.Nadanie" Width="1.5" PointX="11.75" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SBD_DBModel.Naprawa" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBD_DBModel.Odbior" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.Odbior" Width="1.5" PointX="13.25" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SBD_DBModel.Paczka" Width="1.5" PointX="10.5" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SBD_DBModel.Pracownik" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SBD_DBModel.Przewoz" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SBD_DBModel.Przewoz" Width="1.5" PointX="10.375" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SBD_DBModel.Realizacja" Width="1.5" PointX="6" PointY="19.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SBD_DBModel.Samochod" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SBD_DBModel.Serwis" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />

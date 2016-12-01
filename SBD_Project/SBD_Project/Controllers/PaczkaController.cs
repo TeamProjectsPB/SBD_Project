@@ -44,6 +44,13 @@ namespace SBD_Project.Controllers
             return View();
         }
 
+        public ActionResult CreateNewPack()
+        {
+            //ViewBag.FK_Przewoz = new SelectList(db.Przewoz, "ID", "ID");
+            //ViewBag.FK_Zlecenie = new SelectList(db.Zlecenie, "ID", "Lokalizacja");
+            return View();
+        }
+
         // POST: Paczka/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

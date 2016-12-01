@@ -27,7 +27,7 @@ namespace SBD_Project.Models
         [Display(Name = "Klient")]
         public int FK_Klient { get; set; }
 
-        [Display(Name = "Klient")]
+        [Display(Name = "Data nadania")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime Data { get; set; }
 
