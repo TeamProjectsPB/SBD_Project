@@ -7,7 +7,14 @@
 
 <h2>Uprawnienia</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (User.IsInRole("Kierowca"))
+    {
+        @Html.ActionLink("Create New", "CreateByUser")
+    }
+    else
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
 </p>
 <table class="table" style="font-size: 16px; text-align: justify;color: #7F7460">
     <tr>

@@ -15,6 +15,7 @@ namespace SBD_Project.Controllers
         private SBD_DBEntities db = new SBD_DBEntities();
 
         // GET: Kierowcas
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Index()
         {
             var kierowca = db.Kierowca.Include(k => k.Uzytkownik);
@@ -37,6 +38,7 @@ namespace SBD_Project.Controllers
         }
 
         // GET: Kierowcas/Create
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Create()
         {
             ViewBag.FK_Uzytkownik = new SelectList(db.Uzytkownik, "ID", "Login");
@@ -48,6 +50,7 @@ namespace SBD_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Create([Bind(Include = "FK_Uzytkownik,Nazwisko,Imie,KodPocztowy,Miasto,Ulica,NumerDomu,NumerMieszkania,Telefon")] Kierowca kierowca)
         {
             if (ModelState.IsValid)
@@ -62,6 +65,7 @@ namespace SBD_Project.Controllers
         }
 
         // GET: Kierowcas/Edit/5
+        [Authorize(Roles = "Administrator, Pracownik, Kierowca")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,19 +86,22 @@ namespace SBD_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Pracownik, Kierowca")]
         public ActionResult Edit([Bind(Include = "FK_Uzytkownik,Nazwisko,Imie,KodPocztowy,Miasto,Ulica,NumerDomu,NumerMieszkania,Telefon")] Kierowca kierowca)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(kierowca).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return Redirect(Request.UrlReferrer.ToString());
             }
             ViewBag.FK_Uzytkownik = new SelectList(db.Uzytkownik, "ID", "Login", kierowca.FK_Uzytkownik);
             return View(kierowca);
         }
 
         // GET: Kierowcas/Delete/5
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,6 +119,7 @@ namespace SBD_Project.Controllers
         // POST: Kierowcas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult DeleteConfirmed(int id)
         {
             Kierowca kierowca = db.Kierowca.Find(id);
@@ -119,7 +127,7 @@ namespace SBD_Project.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles = "Administrator, Pracownik")]
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -19,7 +20,7 @@
     <div class="col-md-4">
         <p>
             <h2>
-                <a href=@Url.Action("Index", "Kierowcas")>
+                <a href=@Url.Action("Edit", "Kierowcas", new {id=User.Identity.GetUserId()})>
                     Dane osobowe
                 </a>
             </h2>
@@ -41,7 +42,7 @@
     <div class="col-md-4">
         <p>
             <h2>
-                <a href=@Url.Action("Index", "Uprawnienia")>
+                <a href=@Url.Action("IndexUser", "Uprawnienia", new {id = User.Identity.GetUserId()})>
                     Moje uprawnienia
                 </a>
             </h2>
