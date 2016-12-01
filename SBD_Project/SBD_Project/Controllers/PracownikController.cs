@@ -82,7 +82,7 @@ namespace SBD_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FK_Uzytkownik,Nazwisko,Imie")] Pracownik pracownik)
+        public ActionResult Edit([Bind(Include = "FK_Uzytkownik, Nazwisko, Imie, KodPocztowy, Miasto, Ulica, NumerDomu, NumerMieszkania, Telefon")] Pracownik pracownik)
         {
             if (ModelState.IsValid)
             {
