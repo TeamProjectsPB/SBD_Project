@@ -25,7 +25,7 @@ namespace SBD_Project.Controllers
         [Authorize(Roles = "Administrator, Pracownik, Kierowca")]
         public ActionResult DriversIndex(int id)
         {
-            if (User.IsInRole("Kierowca") && !User.Identity.GetUserId().Equals(id))
+            if (User.IsInRole("Kierowca") && !User.Identity.GetUserId().Equals(id.ToString()))
             {
                 return RedirectToAction("IndexDriver", "Home");
             }
