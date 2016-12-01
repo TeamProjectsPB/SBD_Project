@@ -40,12 +40,21 @@ namespace SBD_Project.Models
         [Display(Name = "Data zlecenia")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime DataZlecenia { get; set; }
-    
+
+        [Display(Name = "Nadanie")]
         public virtual Nadanie Nadanie { get; set; }
+
+        [Display(Name = "Odbiór")]
         public virtual Odbior Odbior { get; set; }
+
+        [Display(Name = "Paczka")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Paczka> Paczka { get; set; }
+
+        [Display(Name = "Pracownik")]
         public virtual Pracownik Pracownik { get; set; }
+
+        [Display(Name = "Realizacja")]
         public virtual Realizacja Realizacja { get; set; }
     }
 }

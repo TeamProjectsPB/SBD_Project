@@ -28,9 +28,14 @@ namespace SBD_Project.Models
         public string PotwierdzHaslo { get; set; }
         public string Typ { get; set; }
         public Boolean RememberMe { get; set; }
-    
+
+        [Display(Name = "Kierowca")]
         public virtual Kierowca Kierowca { get; set; }
+
+        [Display(Name = "Pracownik")]
         public virtual Pracownik Pracownik { get; set; }
+
+        [Display(Name = "Serwis")]
         public virtual Serwis Serwis { get; set; }
     }
 }

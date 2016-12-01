@@ -34,8 +34,11 @@ namespace SBD_Project.Models
 
         [Display(Name = "Opis")]
         public string Opis { get; set; }
-    
+
+        [Display(Name = "Samochód")]
         public virtual Samochod Samochod { get; set; }
+
+        [Display(Name = "Serwis")]
         public virtual Serwis Serwis { get; set; }
     }
 }

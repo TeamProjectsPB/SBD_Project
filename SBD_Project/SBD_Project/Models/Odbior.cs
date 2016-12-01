@@ -30,8 +30,11 @@ namespace SBD_Project.Models
         [Display(Name = "Data")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime Data { get; set; }
-    
+
+        [Display(Name = "Klient")]
         public virtual Klient Klient { get; set; }
+
+        [Display(Name = "Zlecenie")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zlecenie> Zlecenie { get; set; }
     }

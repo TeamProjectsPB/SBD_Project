@@ -436,6 +436,7 @@
     <Content Include="Views\Home\IndexDriver.cshtml" />
     <Content Include="Views\Home\IndexEmployee.cshtml" />
     <Content Include="Views\Uprawnienia\CreateByUser.cshtml" />
+    <Content Include="Views\Przewoz\DriversIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

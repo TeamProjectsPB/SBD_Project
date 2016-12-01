@@ -26,7 +26,8 @@ namespace SBD_Project.Models
 
         [Display(Name = "Status")]
         public string Status { get; set; }
-    
+
+        [Display(Name = "Zlecenie")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zlecenie> Zlecenie { get; set; }
     }

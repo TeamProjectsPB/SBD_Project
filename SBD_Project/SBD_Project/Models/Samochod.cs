@@ -42,9 +42,12 @@ namespace SBD_Project.Models
 
         [Display(Name = "Opis")]
         public string Opis { get; set; }
-    
+
+        [Display(Name = "Naprawa")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Naprawa> Naprawa { get; set; }
+
+        [Display(Name = "Przewóz")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Przewoz> Przewoz { get; set; }
     }

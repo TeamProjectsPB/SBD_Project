@@ -48,8 +48,12 @@ namespace SBD_Project.Models
         [Display(Name = "Telefon")]
         [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
         public decimal Telefon { get; set; }
+
+        [Display(Name = "Naprawa")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Naprawa> Naprawa { get; set; }
+
+        [Display(Name = "U¿ytkownik")]
         public virtual Uzytkownik Uzytkownik { get; set; }
     }
 }
