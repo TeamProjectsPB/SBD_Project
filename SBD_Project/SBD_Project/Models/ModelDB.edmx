@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SBD_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SBD_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cennik">
           <Key>
             <PropertyRef Name="ID" />
@@ -89,6 +89,12 @@
           <Property Name="FK_Uzytkownik" Type="int" Nullable="false" />
           <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KodPocztowy" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Miasto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumerDomu" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="NumerMieszkania" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="Telefon" Type="numeric" Precision="13" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="Przewoz">
           <Key>
@@ -436,8 +442,7 @@
             <End Role="Zlecenie" EntitySet="Zlecenie" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SBD_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -540,6 +545,12 @@
           <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Uzytkownik" Relationship="Self.FK_Uzytkownik_ToTableUzytkownik" FromRole="Pracownik" ToRole="Uzytkownik" />
           <NavigationProperty Name="Zlecenie" Relationship="Self.FK_Zlecenie_ToTablePracownik" FromRole="Pracownik" ToRole="Zlecenie" />
+          <Property Name="KodPocztowy" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Miasto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ulica" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NumerDomu" Type="Decimal" Nullable="false" Precision="4" Scale="0" />
+          <Property Name="NumerMieszkania" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="Telefon" Type="Decimal" Nullable="false" Precision="13" Scale="0" />
         </EntityType>
         <EntityType Name="Przewoz">
           <Key>
@@ -997,6 +1008,12 @@
           <EntitySetMapping Name="Pracownik">
             <EntityTypeMapping TypeName="SBD_DBModel.Pracownik">
               <MappingFragment StoreEntitySet="Pracownik">
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="NumerMieszkania" ColumnName="NumerMieszkania" />
+                <ScalarProperty Name="NumerDomu" ColumnName="NumerDomu" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
                 <ScalarProperty Name="FK_Uzytkownik" ColumnName="FK_Uzytkownik" />
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
