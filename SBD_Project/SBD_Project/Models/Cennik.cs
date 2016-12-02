@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace SBD_Project.Models
 {
     using System;
@@ -16,16 +14,9 @@ namespace SBD_Project.Models
     
     public partial class Cennik
     {
-
         public int ID { get; set; }
-
-        [Display(Name="Minimalna waga")]
         public Nullable<decimal> MinWaga { get; set; }
-
-        [Display(Name = "Maksymalna waga")]
         public Nullable<decimal> MaxWaga { get; set; }
-
-        [Display(Name = "Cena waga")]
         public Nullable<decimal> Cena { get; set; }
     }
 }

@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace SBD_Project.Models
 {
     using System;
@@ -23,11 +21,8 @@ namespace SBD_Project.Models
         }
     
         public int ID { get; set; }
-
-        [Display(Name = "Status")]
         public string Status { get; set; }
-
-        [Display(Name = "Zlecenie")]
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zlecenie> Zlecenie { get; set; }
     }

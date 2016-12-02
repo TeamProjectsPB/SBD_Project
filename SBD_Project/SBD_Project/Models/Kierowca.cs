@@ -7,9 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace SBD_Project.Models
 {
     using System;
@@ -23,49 +20,20 @@ namespace SBD_Project.Models
             this.Przewoz = new HashSet<Przewoz>();
             this.Uprawnienia = new HashSet<Uprawnienia>();
         }
-
-        [Display(Name = "U¿ytkownik")]
-        public int FK_Uzytkownik { get; set; }
-
-        [Display(Name = "Nazwisko")]
-        public string Nazwisko { get; set; }
-
-        [Display(Name = "Imiê")]
-        public string Imie { get; set; }
-
-        [Display(Name = "Kod pocztowy")]
-        public string KodPocztowy { get; set; }
-
-        [Display(Name = "Miasto")]
-        public string Miasto { get; set; }
-
-        [Display(Name = "Ulica")]
-        public string Ulica { get; set; }
-
-        [Display(Name = "Numer domu")]
-        [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
-        public decimal NumerDomu { get; set; }
-
-        [Display(Name = "Numer mieszkania")]
-        [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
-        public Nullable<decimal> NumerMieszkania { get; set; }
-
-        [Display(Name = "Telefon")]
-        [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
-        public decimal Telefon { get; set; }
-
-        [NotMapped]
-        [Display(Name="Imiê i nazwisko")]
-        public string ImieNazwisko { get { return Imie + " " + Nazwisko; } }
     
-        [Display(Name ="U¿ytkownik")]
+        public int FK_Uzytkownik { get; set; }
+        public string Nazwisko { get; set; }
+        public string Imie { get; set; }
+        public string KodPocztowy { get; set; }
+        public string Miasto { get; set; }
+        public string Ulica { get; set; }
+        public decimal NumerDomu { get; set; }
+        public Nullable<decimal> NumerMieszkania { get; set; }
+        public decimal Telefon { get; set; }
+    
         public virtual Uzytkownik Uzytkownik { get; set; }
-
-        [Display(Name = "Przewóz")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Przewoz> Przewoz { get; set; }
-
-        [Display(Name = "Uprawnienia")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Uprawnienia> Uprawnienia { get; set; }
     }

@@ -7,35 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace SBD_Project.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Uzytkownik
     {
-        [Key]
         public int ID { get; set; }
-        [Required(ErrorMessage = "Login is required")]
         public string Login { get; set; }
-        [Required(ErrorMessage = "Password is required")]
-        [DataType(DataType.Password)]
         public string Hasło { get; set; }
-        [Compare("Hasło", ErrorMessage = "Please confirm your password")]
-        [DataType(DataType.Password)]
-        public string PotwierdzHaslo { get; set; }
         public string Typ { get; set; }
-        public Boolean RememberMe { get; set; }
-
-        [Display(Name = "Kierowca")]
+    
         public virtual Kierowca Kierowca { get; set; }
-
-        [Display(Name = "Pracownik")]
         public virtual Pracownik Pracownik { get; set; }
-
-        [Display(Name = "Serwis")]
         public virtual Serwis Serwis { get; set; }
     }
 }
