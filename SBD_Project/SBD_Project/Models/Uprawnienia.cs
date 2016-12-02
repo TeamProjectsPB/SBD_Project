@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace SBD_Project.Models
 {
     using System;
@@ -15,12 +17,25 @@ namespace SBD_Project.Models
     public partial class Uprawnienia
     {
         public int ID { get; set; }
+
+        [Display(Name = "Kierowca")]
         public int FK_Kierowca { get; set; }
+
+        [Display(Name = "Numer uprawnienia")]
         public string NumerUprawnienia { get; set; }
+
+        [Display(Name = "Opis")]
         public string Opis { get; set; }
+
+        [Display(Name = "Data od")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime DataOd { get; set; }
+
+        [Display(Name = "Data do")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime DataDo { get; set; }
-    
+
+        [Display(Name = "Kierowca")]
         public virtual Kierowca Kierowca { get; set; }
     }
 }

@@ -7,6 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SBD_Project.Models
 {
     using System;
@@ -22,15 +25,34 @@ namespace SBD_Project.Models
         }
     
         public int ID { get; set; }
+
+        [Display(Name = "Numer rejestracyjny")]
         public string NumerRej { get; set; }
+
+        [Display(Name = "Wolny")]
         public byte CzyWolny { get; set; }
+
+        [Display(Name = "Marka")]
         public string Marka { get; set; }
+
+        [Display(Name = "Model")]
         public string Model { get; set; }
+
+        [Display(Name = "Tona¿")]
         public decimal Tonaz { get; set; }
+
+        [Display(Name = "Opis")]
         public string Opis { get; set; }
-    
+
+        [NotMapped]
+        [Display(Name ="Samochód:")]
+        public string MarkaModelNumerRej { get { return Marka + " " + Model + ": " + NumerRej; } }
+
+        [Display(Name = "Naprawa")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Naprawa> Naprawa { get; set; }
+
+        [Display(Name = "Przewóz")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Przewoz> Przewoz { get; set; }
     }
