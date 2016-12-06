@@ -7,9 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace SBD_Project.Models
 {
     using System;
@@ -25,40 +22,16 @@ namespace SBD_Project.Models
         }
     
         public int ID { get; set; }
-        [Display(Name = "Imiê")]
         public string Imie { get; set; }
-
-        [Display(Name = "Nazwisko")]
         public string Nazwisko { get; set; }
-
-        [Display(Name = "E-mail")]
         public string Email { get; set; }
-
-        [Display(Name = "Kod Pocztowy")]
         public string KodPocztowy { get; set; }
-
-        [Display(Name = "Miasto")]
         public string Miasto { get; set; }
-
-        [Display(Name = "Ulica")]
         public string Ulica { get; set; }
-
-        [Display(Name = "Numer domu")]
-        [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
         public decimal NumerDomu { get; set; }
-
-        [Display(Name = "Numer mieszkania")]
-        [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
         public Nullable<decimal> NumerMieszkania { get; set; }
-
-        [Display(Name = "Telefon")]
-        [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
         public decimal Telefon { get; set; }
-
-        [NotMapped]
-        [Display(Name = "Imiê i nazwisko")]
-        public string ImieNazwisko { get { return Imie + " " + Nazwisko; } }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Nadanie> Nadanie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

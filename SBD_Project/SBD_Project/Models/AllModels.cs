@@ -7,110 +7,60 @@ namespace SBD_Project.Models
 {
     public class AllModels
     {
-        private Cennik cennikModel;
-        Kierowca kierowcaModel;
-        Klient klientModel;
-        Nadanie nadanieModel;
-        Naprawa naprawaModel;
-        Odbior odbiorModel;
-        Paczka paczkaModel;
-        Pracownik pracownikModel;
-        Przewoz przewozModel;
-        Realizacja realizacjaModel;
-        Samochod samochodModel;
-        Serwis serwisModel;
-        Uprawnienia uprawnieniaModel;
-        Uzytkownik uzytkownikModel;
-        Zlecenie zlecenieModel;
+        Odbior odbior;
+        Klient odbiorca;
 
-        public Cennik CennikModel
+        Nadanie nadanie;
+        Klient nadawca;
+        Paczka paczka;
+        Zlecenie zlecenie;
+
+        string validationSummary = String.Empty;
+        public string ValidationSummary
         {
-            get { return cennikModel; }
-            set { cennikModel = value; }
+            get { return validationSummary; }
+            set { validationSummary = value; }
         }
 
-        public Kierowca KierowcaModel
+
+
+
+        public Odbior Odbior
         {
-            get { return kierowcaModel; }
-            set { kierowcaModel = value; }
+            get { return odbior; }
+            set { odbior = value; }
         }
 
-        public Klient KlientModel
+
+
+        public Klient Odbiorca
         {
-            get { return klientModel; }
-            set { klientModel = value; }
+            get { return odbiorca; }
+            set { odbiorca = value; }
         }
 
-        public Nadanie NadanieModel
+        public Nadanie Nadanie
         {
-            get { return nadanieModel; }
-            set { nadanieModel = value; }
+            get { return nadanie; }
+            set { nadanie = value; }
         }
 
-        public Naprawa NaprawaModel
+        public Klient Nadawca
         {
-            get { return naprawaModel; }
-            set { naprawaModel = value; }
+            get { return nadawca; }
+            set { nadawca = value; }
         }
 
-        public Odbior OdbiorModel
+        public Paczka Paczka
         {
-            get { return odbiorModel; }
-            set { odbiorModel = value; }
+            get { return paczka; }
+            set { paczka = value; }
         }
 
-        public Paczka PaczkaModel
+        public Zlecenie Zlecenie
         {
-            get { return paczkaModel; }
-            set { paczkaModel = value; }
-        }
-
-        public Pracownik PracownikModel
-        {
-            get { return pracownikModel; }
-            set { pracownikModel = value; }
-        }
-
-        public Przewoz PrzewozModel
-        {
-            get { return przewozModel; }
-            set { przewozModel = value; }
-        }
-
-        public Realizacja RealizacjaModel
-        {
-            get { return realizacjaModel; }
-            set { realizacjaModel = value; }
-        }
-
-        public Samochod SamochodModel
-        {
-            get { return samochodModel; }
-            set { samochodModel = value; }
-        }
-
-        public Serwis SerwisModel
-        {
-            get { return serwisModel; }
-            set { serwisModel = value; }
-        }
-
-        public Uprawnienia UprawnieniaModel
-        {
-            get { return uprawnieniaModel; }
-            set { uprawnieniaModel = value; }
-        }
-
-        public Uzytkownik UzytkownikModel
-        {
-            get { return uzytkownikModel; }
-            set { uzytkownikModel = value; }
-        }
-
-        public Zlecenie ZlecenieModel
-        {
-            get { return zlecenieModel; }
-            set { zlecenieModel = value; }
+            get { return zlecenie; }
+            set { zlecenie = value; }
         }
     }
 }

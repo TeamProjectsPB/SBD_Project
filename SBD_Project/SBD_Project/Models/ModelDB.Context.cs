@@ -28,7 +28,9 @@ namespace SBD_Project.Models
         public virtual DbSet<Cennik> Cennik { get; set; }
         public virtual DbSet<Kierowca> Kierowca { get; set; }
         public virtual DbSet<Klient> Klient { get; set; }
+        public virtual DbSet<Nadanie> Nadanie { get; set; }
         public virtual DbSet<Naprawa> Naprawa { get; set; }
+        public virtual DbSet<Odbior> Odbior { get; set; }
         public virtual DbSet<Paczka> Paczka { get; set; }
         public virtual DbSet<Pracownik> Pracownik { get; set; }
         public virtual DbSet<Przewoz> Przewoz { get; set; }
@@ -38,7 +40,5 @@ namespace SBD_Project.Models
         public virtual DbSet<Uprawnienia> Uprawnienia { get; set; }
         public virtual DbSet<Uzytkownik> Uzytkownik { get; set; }
         public virtual DbSet<Zlecenie> Zlecenie { get; set; }
-        public virtual DbSet<Nadanie> Nadanie { get; set; }
-        public virtual DbSet<Odbior> Odbior { get; set; }
     }
 }

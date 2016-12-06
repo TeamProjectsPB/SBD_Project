@@ -211,6 +211,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CennikController.cs" />
+    <Compile Include="Controllers\CreateNewPackageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KierowcasController.cs" />
     <Compile Include="Controllers\KlientController.cs" />
@@ -270,7 +271,6 @@
     <Compile Include="Models\Pracownik.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PrzesylkiKierowcy.cs" />
     <Compile Include="Models\Przewoz.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -465,6 +465,7 @@
     <Content Include="Views\Odbiors\Edit.cshtml" />
     <Content Include="Views\Odbiors\Index.cshtml" />
     <Content Include="Views\Paczka\CreateNewPack.cshtml" />
+    <Content Include="Views\CreateNewPackage\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

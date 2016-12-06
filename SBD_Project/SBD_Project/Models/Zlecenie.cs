@@ -7,9 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace SBD_Project.Models
 {
     using System;
@@ -24,42 +21,18 @@ namespace SBD_Project.Models
         }
     
         public int ID { get; set; }
-
-        [Display(Name = "Realizacja")]
         public int FK_Realizacja { get; set; }
-
-        [Display(Name = "Nadanie")]
         public int FK_Nadanie { get; set; }
-
-        [Display(Name = "Odbiór")]
         public int FK_Odbior { get; set; }
-
-        [Display(Name = "Pracownik")]
         public int FK_Pracownik { get; set; }
         public string Lokalizacja { get; set; }
-
-        [Display(Name = "Data zlecenia")]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime DataZlecenia { get; set; }
-
-        [Display(Name = "Nadanie")]
+    
         public virtual Nadanie Nadanie { get; set; }
-
-        [Display(Name = "Odbiór")]
         public virtual Odbior Odbior { get; set; }
-
-        [NotMapped]
-        [Display(Name ="Zlecenie")]
-        public string Opis { get { return DataZlecenia + ": " + Lokalizacja; } }
-
-        [Display(Name = "Paczka")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Paczka> Paczka { get; set; }
-
-        [Display(Name = "Pracownik")]
         public virtual Pracownik Pracownik { get; set; }
-
-        [Display(Name = "Realizacja")]
         public virtual Realizacja Realizacja { get; set; }
     }
 }

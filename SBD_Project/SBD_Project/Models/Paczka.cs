@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace SBD_Project.Models
 {
     using System;
@@ -17,29 +15,14 @@ namespace SBD_Project.Models
     public partial class Paczka
     {
         public int ID { get; set; }
-
-        [Display(Name= "Zlecenie")]
         public int FK_Zlecenie { get; set; }
-
-        [Display(Name = "Przewóz")]
         public int FK_Przewoz { get; set; }
-
-        [Display(Name = "Nazwa")]
         public string Nazwa { get; set; }
-
-        [Display(Name = "Wartosc")]
         public decimal Wartosc { get; set; }
-
-        [Display(Name = "Waga")]
         public decimal Waga { get; set; }
-
-        [Display(Name = "Uwagi")]
         public string Uwagi { get; set; }
-
-        [Display(Name = "Przewóz")]
+    
         public virtual Przewoz Przewoz { get; set; }
-
-        [Display(Name = "Zlecenie")]
         public virtual Zlecenie Zlecenie { get; set; }
     }
 }
