@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace SBD_Project.Models
 {
     using System;
@@ -20,17 +22,38 @@ namespace SBD_Project.Models
             this.Naprawa = new HashSet<Naprawa>();
         }
     
+        [Display(Name ="U¿ytkownik")]
         public int FK_Uzytkownik { get; set; }
+
+        [Display(Name = "Nazwa")]
         public string Nazwa { get; set; }
+
+        [Display(Name = "Kod Pocztowy")]
         public string KodPocztowy { get; set; }
+
+        [Display(Name = "Miasto")]
         public string Miasto { get; set; }
+
+        [Display(Name = "Ulica")]
         public string Ulica { get; set; }
+
+        [Display(Name = "Numer domu")]
+        [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
         public decimal NumerDomu { get; set; }
+
+        [Display(Name = "Numer mieszkania")]
+        [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
         public Nullable<decimal> NumerMieszkania { get; set; }
+
+        [Display(Name = "Telefon")]
+        [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
         public decimal Telefon { get; set; }
-    
+
+        [Display(Name = "Naprawa")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Naprawa> Naprawa { get; set; }
+
+        [Display(Name = "U¿ytkownik")]
         public virtual Uzytkownik Uzytkownik { get; set; }
     }
 }

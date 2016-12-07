@@ -7,6 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SBD_Project.Models
 {
     using System;
@@ -21,13 +24,33 @@ namespace SBD_Project.Models
         }
     
         public int ID { get; set; }
+
+        [Display(Name="Samochód")]
         public int FK_Samochod { get; set; }
+
+        [Display(Name = "Kierowca")]
         public int FK_Kierowca { get; set; }
+
+        [Display(Name = "Data przewozu")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime DataPrzewozu { get; set; }
-    
+
+        [NotMapped]
+        [Display(Name = "Przewóz:")]
+        public string Opis { get
+        {
+            return DataPrzewozu.ToString("dd/MM/yyyy") + ", " + Kierowca.ImieNazwisko + ", " + Samochod.MarkaModelNumerRej;
+        } }
+
+        [Display(Name = "Kierowca")]
         public virtual Kierowca Kierowca { get; set; }
+
+        [Display(Name = "Paczka")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Paczka> Paczka { get; set; }
+
+        [Display(Name = "Samochód")]
         public virtual Samochod Samochod { get; set; }
     }
 }

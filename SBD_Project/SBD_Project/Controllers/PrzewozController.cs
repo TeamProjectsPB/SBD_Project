@@ -16,22 +16,26 @@ namespace SBD_Project.Controllers
         private SBD_DBEntities db = new SBD_DBEntities();
 
         // GET: Przewoz
-        [Authorize(Roles = "Administrator, Pracownik")]
-        public ActionResult Index()
-        {
-            var przewoz = db.Przewoz.Include(p => p.Kierowca).Include(p => p.Samochod);
-            return View(przewoz.ToList());
-        }
         [Authorize(Roles = "Administrator, Pracownik, Kierowca")]
-        public ActionResult DriversIndex(int id)
+        public ActionResult Index(int? id)
         {
-            if (User.IsInRole("Kierowca") && !User.Identity.GetUserId().Equals(id.ToString()))
+            var przewoz = db.Przewoz.Include(p => p.Kierowca).Include(p => p.Samochod).Include(p => p.Paczka);
+            if (id == null)
             {
-                return RedirectToAction("IndexDriver", "Home");
+                return View(przewoz.ToList());
             }
-            var przewoz = db.Przewoz.Include(p => p.Kierowca).Include(p => p.Samochod).Include(p => p.Paczka).Where(p => p.FK_Kierowca == id);            
-            return View(przewoz.ToList());
-        }
+            else
+            {
+                if (User.IsInRole("Kierowca") && !User.Identity.GetUserId().Equals(id.ToString()))
+                {
+                    return RedirectToAction("IndexDriver", "Home");
+                }
+                else
+                {
+                    return View(przewoz.Where(p => p.FK_Kierowca == id).ToList());
+                }
+            }
+        }        
         // GET: Przewoz/Details/5
         [Authorize(Roles = "Administrator, Pracownik")]
         public ActionResult Details(int? id)

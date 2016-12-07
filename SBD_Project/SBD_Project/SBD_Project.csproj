@@ -318,6 +318,7 @@
     <Content Include="IMG\offer.png" />
     <Content Include="IMG\paczka.jpg" />
     <Content Include="IMG\pb_logo.jpg" />
+    <Content Include="IMG\pb_logo.png" />
     <Content Include="IMG\phone.png" />
     <Content Include="IMG\pracownik.png" />
     <Content Include="IMG\repair.jpg" />
@@ -453,7 +454,6 @@
     <Content Include="Views\Home\IndexDriver.cshtml" />
     <Content Include="Views\Home\IndexEmployee.cshtml" />
     <Content Include="Views\Uprawnienia\CreateByUser.cshtml" />
-    <Content Include="Views\Przewoz\DriversIndex.cshtml" />
     <Content Include="Views\Nadanie\Create.cshtml" />
     <Content Include="Views\Nadanie\Delete.cshtml" />
     <Content Include="Views\Nadanie\Details.cshtml" />
@@ -466,6 +466,7 @@
     <Content Include="Views\Odbiors\Index.cshtml" />
     <Content Include="Views\Paczka\CreateNewPack.cshtml" />
     <Content Include="Views\CreateNewPackage\Create.cshtml" />
+    <Content Include="Views\CreateNewPackage\SuccesfullyCreated.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

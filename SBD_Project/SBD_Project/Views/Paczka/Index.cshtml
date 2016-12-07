@@ -8,7 +8,7 @@
 <h2>Paczka</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", "CreateNewPackage")
 </p>
 <table class="table" style="font-size: 16px; text-align: justify;color: #7F7460">
     <tr>
@@ -25,7 +25,7 @@
             @Html.DisplayNameFor(model => model.Uwagi)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Przewoz.ID)
+            @Html.DisplayNameFor(model => model.Przewoz.Opis)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Zlecenie.Lokalizacja)
@@ -48,7 +48,10 @@
             @Html.DisplayFor(modelItem => item.Uwagi)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Przewoz.ID)
+            @*@Html.ActionLink(item.Przewoz.Opis, "Details", "Przewoz", new {id = item.FK_Przewoz})*@
+            <a href=@Url.Action("Details", "Przewoz", new {id = item.FK_Przewoz })>
+                @Html.DisplayFor(modelItem => item.Przewoz.Opis)
+            </a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Zlecenie.Lokalizacja)

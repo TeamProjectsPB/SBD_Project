@@ -5,37 +5,92 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Szczegóły</h2>
 
 <div>
-    <h4>Przewoz</h4>
+    <h4><p>Kierowca: @Html.DisplayFor(modelItem => Model.Kierowca.ImieNazwisko)</p>
+    <p>Przewóz: @Html.DisplayFor(modelItem => Model.DataPrzewozu)</p>
+    <p>Pojazd: @Html.DisplayFor(modelItem => Model.Samochod.MarkaModelNumerRej)</p></h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DataPrzewozu)
-        </dt>
+        <div class="panel-body">
+            <table class="table" style="font-size: 16px; text-align: justify; color: #7F7460">
+                <tr>
+                    <th colspan="4" style="text-align: center">Paczka</th>
+                    <th colspan="5" style="text-align: center">Dane adresowe</th>
+                </tr>
+                <tr>
+                    <td>
+                        Nazwa
+                    </td>
+                    <td>
+                        Wartość
+                    </td>
+                    <td>
+                        Waga
+                    </td>
+                    <td>
+                        Uwagi
+                    </td>
+                    <td>
+                        Kod pocztowy
+                    </td>
+                    <td>
+                        Miasto
+                    </td>
+                    <td>
+                        Ulica
+                    </td>
+                    <td>
+                        Numer domu
+                    </td>
+                    <td>
+                        Numer mieszkania
+                    </td>
+                </tr>
+                @foreach (var paczka in Model.Paczka)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(path => paczka.Nazwa)
+                        </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.DataPrzewozu)
-        </dd>
+                        <td>
+                            @Html.DisplayFor(path => paczka.Wartosc)
+                        </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Kierowca.Nazwisko)
-        </dt>
+                        <td>
+                            @Html.DisplayFor(path => paczka.Waga)
+                        </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Kierowca.Nazwisko)
-        </dd>
+                        <td>
+                            @Html.DisplayFor(path => paczka.Uwagi)
+                        </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Samochod.NumerRej)
-        </dt>
+                        <td>
+                            @Html.DisplayFor(path => paczka.Zlecenie.Odbior.Klient.KodPocztowy)
+                        </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Samochod.NumerRej)
-        </dd>
+                        <td>
+                            @Html.DisplayFor(path => paczka.Zlecenie.Odbior.Klient.Miasto)
+                        </td>
 
-    </dl>
+                        <td>
+                            @Html.DisplayFor(path => paczka.Zlecenie.Odbior.Klient.Ulica)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(path => paczka.Zlecenie.Odbior.Klient.NumerDomu)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(path => paczka.Zlecenie.Odbior.Klient.KodPocztowy)
+                        </td>
+                    </tr>
+
+                }
+            </table>
+        </div>
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |

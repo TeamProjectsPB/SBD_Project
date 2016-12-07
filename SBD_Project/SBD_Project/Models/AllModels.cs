@@ -15,6 +15,10 @@ namespace SBD_Project.Models
         Paczka paczka;
         Zlecenie zlecenie;
 
+        public AllModels()
+        {
+        }
+
         string validationSummary = String.Empty;
         public string ValidationSummary
         {

@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace SBD_Project.Models
 {
     using System;
@@ -15,12 +17,22 @@ namespace SBD_Project.Models
     public partial class Uzytkownik
     {
         public int ID { get; set; }
+
+        [Required(ErrorMessage = "Login jest wymagany")]
         public string Login { get; set; }
+
+        [Required(ErrorMessage = "Hasło jest wymagane")]
+        [DataType(DataType.Password)]   
         public string Hasło { get; set; }
         public string Typ { get; set; }
-    
+
+        [Display(Name = "Kierowca")]
         public virtual Kierowca Kierowca { get; set; }
+
+        [Display(Name = "Pracownik")]
         public virtual Pracownik Pracownik { get; set; }
+
+        [Display(Name = "Serwis")]  
         public virtual Serwis Serwis { get; set; }
     }
 }

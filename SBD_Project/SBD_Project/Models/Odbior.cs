@@ -7,6 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SBD_Project.Models
 {
     using System;
@@ -17,13 +21,21 @@ namespace SBD_Project.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Odbior()
         {
-            this.Zlecenie = new HashSet<Zlecenie>();
+            this.Zlecenie = new HashSet<Zlecenie>();            
         }
     
         public int ID { get; set; }
+
+        [Display(Name = "Klient")]
         public int FK_Klient { get; set; }
+
+        [Display(Name = "Data odbioru")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime Data { get; set; }
-    
+
+        [NotMapped]
+        [Display(Name = "Nadanie")]
+        public string Opis { get { return Data + ": " + Klient.ImieNazwisko; } }
         public virtual Klient Klient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zlecenie> Zlecenie { get; set; }

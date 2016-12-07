@@ -21,7 +21,7 @@ namespace SBD_Project.Controllers
         // GET: CreateNewPackage
         [Authorize(Roles = "Pracownik")]
         public ActionResult Create()
-        {
+        {           
             return View();
         }
 
@@ -73,7 +73,6 @@ namespace SBD_Project.Controllers
                                                           ": nie znaleziono wolnego pojazdu. Zmień datę odbioru.";
                             return View(allModel);
                         }
-
                         przewoz = new Przewoz();
                         przewoz.DataPrzewozu = data;
                         przewoz.Kierowca = freeDriver;
@@ -84,30 +83,20 @@ namespace SBD_Project.Controllers
                         przewozExists = true;
                     }
 
-
                     allModel.Paczka.Przewoz = przewoz;
                     allModel.Paczka.Zlecenie = allModel.Zlecenie;
-
-                    //db.Klient.Add(allModel.Odbiorca);
-                    //db.SaveChanges();
-                                        
-
-                    //db.Odbior.Add(allModel.Odbior);
-                    //db.Klient.Add(allModel.Nadawca);
-                    //db.Nadanie.Add(allModel.Nadanie);
-                    //if (!przewozExists)
-                    //{
-                    //    db.Przewoz.Add(przewoz);
-                    //}
-                    //db.Zlecenie.Add(allModel.Zlecenie);
                     db.Paczka.Add(allModel.Paczka);
-                    db.SaveChanges();
-                    
-
+                    db.SaveChanges();                    
                 }
                 catch (Exception e) { }
             }
             return View(allModel);
-        }      
+        }
+
+        public ActionResult SuccesfullyCreated()
+        {
+            return View();
+
+        }
     }
 }
