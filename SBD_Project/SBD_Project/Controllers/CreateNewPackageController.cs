@@ -50,8 +50,9 @@ namespace SBD_Project.Controllers
                     var data = allModel.Odbior.Data;
 
                     bool przewozExists = false;
-                    var przewoz =
-                        db.Przewoz.Where(p => p.DataPrzewozu.Equals(data)).FirstOrDefault();
+                    var przewozy =
+                        db.Przewoz.Where(p => p.DataPrzewozu.Equals(data)).Where(s => (s.Paczka.Sum(p => p.Waga) + allModel.Paczka.Waga) < s.Samochod.Tonaz * 1000);
+                    var przewoz = przewozy.FirstOrDefault();
                     if (przewoz == null)
                     {
                         var freeDriver =
@@ -64,13 +65,23 @@ namespace SBD_Project.Controllers
                                                           ": nie znaleziono wolnego kierowcy. Zmień datę odbioru.";
                             return View(allModel);
                         }
-                        var freeCar =
-                            db.Samochod.Where(s => s.Przewoz.Where(p => p.DataPrzewozu.Equals(data)).Count() == 0)
-                                .FirstOrDefault();
-                        if (freeCar == null)
+                        var freeCars =
+                            db.Samochod.Where(s => s.Przewoz.Where(p => p.DataPrzewozu.Equals(data)).Count() == 0);
+                        Samochod freeCar;
+                        if (freeCars.Count() == 0)
                         {
                             allModel.ValidationSummary += data.ToShortDateString() +
                                                           ": nie znaleziono wolnego pojazdu. Zmień datę odbioru.";
+                            return View(allModel);
+                        }
+                        else
+                        {
+                            freeCar = freeCars.Where(s => s.Tonaz*1000 > allModel.Paczka.Waga).FirstOrDefault();
+                        }
+                        if (freeCar == null)
+                        {
+                            allModel.ValidationSummary +=
+                                "Nie posiadamy pojazdu który ma tonaż większy niż waga paczki.";
                             return View(allModel);
                         }
                         przewoz = new Przewoz();
